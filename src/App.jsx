@@ -8,6 +8,7 @@ import AboutSection from "./components/AboutSection";
 import ShapingIndustrySection from "./components/ShapingIndustrySection";
 import Product from "./components/Product";
 import HappilyCustomer from "./components/HappilyCustomer";
+import AllInOneProduct from "./components/AllInOneProduct";
 
 
 
@@ -22,7 +23,9 @@ export default function App() {
       <AboutSection />
       <ShapingIndustrySection />
       <Product />
+      <AllInOneProduct />
       <HappilyCustomer />
+      
       
     </>
   );
