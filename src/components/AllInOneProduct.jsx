@@ -90,7 +90,7 @@ const AllInOneProduct = () => {
             className="absolute w-[240px] h-[260px] md:w-[310px] md:h-[330px] rounded-[3rem] overflow-hidden shadow-2xl z-10 brightness-75"
           >
             <img
-              src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&h=1000&fit=crop"
+              src="https://cdn.prod.website-files.com/64a6caa646429ed756eb2d03/64a6cdff000962bbfb4a9ce6_sc8.jpg"
               className="w-full h-full object-cover"
               alt="Left"
             />
@@ -102,7 +102,7 @@ const AllInOneProduct = () => {
             className="absolute w-[240px] h-[260px] md:w-[310px] md:h-[330px] rounded-[3rem] overflow-hidden shadow-2xl z-10 brightness-75"
           >
             <img
-              src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=800&h=1000&fit=crop"
+              src="https://cdn.prod.website-files.com/64a6caa646429ed756eb2d03/64a6cdff000962bbfb4a9cdd_customer2.jpg"
               className="w-full h-full object-cover"
               alt="Right"
             />
@@ -114,7 +114,7 @@ const AllInOneProduct = () => {
             className="absolute w-[300px] h-[290px] md:w-[440px] md:h-[380px] rounded-[3rem] overflow-hidden shadow-[0_40px_80px_rgba(0,0,0,0.9)] z-20 border border-white/10"
           >
             <img
-              src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=800&h=1000&fit=crop"
+              src="https://cdn.prod.website-files.com/64a6caa646429ed756eb2d03/64a6cdff000962bbfb4a9cd0_main.jpg"
               className="w-full h-full object-cover"
               alt="Center"
             />

@@ -10,15 +10,15 @@ const AboutSection = () => {
           
           {/* Left Side: About */}
           <div className="md:col-span-3">
-            <h2 className="text-xl md:text-2xl font-medium text-gray-200 tracking-wide">
+            <h2 className="text-3xl md:text-3xl font-bold text-gray-200 tracking-wide pt-6 pl-5">
               About
             </h2>
           </div>
 
           {/* Right Side: Text Content */}
-          <div className="md:col-span-9">
-            <p className="text-3xl md:text-[54px] font-medium leading-[1.1] tracking-tight text-gray-400">
-              <span className="text-white">We elevate </span>
+          <div className="md:col-span-9 pl-35 px-5">
+            <p className="text-2xl md:text-[35px] font-medium  tracking-tight text-gray-400 leading-[2.2]">
+              <span className="text-gray-400">We elevate </span>
               <span className="relative text-white inline-block">
                 phenomenal
                 {/* Wavy Green Line SVG */}
