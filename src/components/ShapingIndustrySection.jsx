@@ -1,3 +1,4 @@
+// src/components/ShapingIndustrySection.jsx
 import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -21,25 +22,13 @@ const ShapingIndustrySection = () => {
       },
     });
 
-    // LEFT SIDE: Bottom -> Center, Top -> Out (Negative Rotation)
-    tl.fromTo(leftBack.current, 
-      { x: -400, rotate: 5 }, 
-      { x: -40, rotate: 2, duration: 1 }, 0);
-    
-    tl.fromTo(leftFront.current, 
-      { x: -550, rotate: 20, y: 50 }, 
-      // rotate: -15 se upar wala hissa bahar (left) jayega aur neeche wala center ki taraf aayega
-      { x: -110, rotate: -15, y: 30, duration: 1 }, 0.1); 
+    // LEFT SIDE
+    tl.fromTo(leftBack.current, { x: -400, rotate: 5 }, { x: -40, rotate: 2, duration: 1 }, 0);
+    tl.fromTo(leftFront.current, { x: -550, rotate: 20, y: 50 }, { x: -110, rotate: -15, y: 30, duration: 1 }, 0.1); 
 
-    // RIGHT SIDE: Bottom -> Center, Top -> Out (Positive Rotation)
-    tl.fromTo(rightBack.current, 
-      { x: 400, rotate: -5 }, 
-      { x: 40, rotate: -2, duration: 1 }, 0);
-    
-    tl.fromTo(rightFront.current, 
-      { x: 550, rotate: -20, y: 50 }, 
-      // rotate: 15 se upar wala hissa bahar (right) jayega aur neeche wala center ki taraf aayega
-      { x: 110, rotate: 15, y: 30, duration: 1 }, 0.1); 
+    // RIGHT SIDE
+    tl.fromTo(rightBack.current, { x: 400, rotate: -5 }, { x: 40, rotate: -2, duration: 1 }, 0);
+    tl.fromTo(rightFront.current, { x: 550, rotate: -20, y: 50 }, { x: 110, rotate: 15, y: 30, duration: 1 }, 0.1); 
   }, []);
 
   return (
@@ -60,20 +49,18 @@ const ShapingIndustrySection = () => {
             alt=""
           />
         </div>
-        {/* Front Card (Uper wala) - Bottom center ki taraf, Top bahar */}
+        {/* Front Card (Uper wala) */}
         <div
-  ref={leftFront}
-  className="absolute left-0 w-[280px] h-[360px] md:w-[350px] md:h-[400px] rounded-[3.5rem] overflow-hidden shadow-2xl z-10 border-4 border-black/30"
-  style={{
-    transform: "perspective(1200px) rotateY(18deg) rotateX(-8deg) rotateZ(6deg)"
-  }}
->
-  <img
-    src="https://cdn.prod.website-files.com/64a6caa646429ed756eb2d03/64a6cdff000962bbfb4a9cd5_sc3.jpg"
-    className="w-full h-full object-cover"
-    alt=""
-  />
-</div>
+          ref={leftFront}
+          className="absolute left-0 w-[280px] h-[520px] md:w-[350px] md:h-[520px] rounded-[3.5rem] overflow-hidden shadow-2xl z-10 border-4 border-black/30"
+          style={{ transform: "perspective(1200px) rotateY(18deg) rotateX(-8deg) rotateZ(6deg)" }}
+        >
+          <img
+            src="https://cdn.prod.website-files.com/64a6caa646429ed756eb2d03/64a6cdff000962bbfb4a9cd5_sc3.jpg"
+            className="w-full h-full object-cover"
+            alt=""
+          />
+        </div>
       </div>
 
       {/* --- CENTER CONTENT --- */}
@@ -81,9 +68,7 @@ const ShapingIndustrySection = () => {
         <h2 className="md:text-[80px] font-semibold text-white max-w-lg leading-[1.2] tracking-tighter pt-18">
           We’re  Shaping  Industry
         </h2>
-        
-        {/* Orb Button */}
-        <button className="relative w-36 h-36 md:w-44 md:h-44 flex items-center justify-center rounded-full bg-gradient-to-br from-[#3b448f] via-[#12142a] to-black text-white font-semibold text-lg transition-all duration-500 hover:scale-110  border border-white/10 px-0">
+        <button className="relative w-36 h-36 md:w-44 md:h-44 flex items-center justify-center rounded-full bg-gradient-to-br from-[#3b448f] via-[#12142a] to-black text-white font-semibold text-lg transition-all duration-500 hover:scale-110 border border-white/10 px-0">
           Get Clixr
         </button>
       </div>
@@ -101,10 +86,10 @@ const ShapingIndustrySection = () => {
             alt=""
           />
         </div>
-        {/* Front Card (Uper wala) - Bottom center ki taraf, Top bahar */}
+        {/* Front Card (Uper wala) */}
         <div
           ref={rightFront}
-          className="absolute right-0 w-[280px] h-[360px] md:w-[350px] md:h-[440px] rounded-[3.5rem] overflow-hidden shadow-2xl z-10 border-4 border-black/30"
+          className="absolute right-0 w-[280px] h-[520px] md:w-[350px] md:h-[520px] rounded-[3.5rem] overflow-hidden shadow-2xl z-10 border-4 border-black/30"
         >
           <img
             src="https://cdn.prod.website-files.com/64a6caa646429ed756eb2d03/64a6cdff000962bbfb4a9cf9_card2.jpg" 
