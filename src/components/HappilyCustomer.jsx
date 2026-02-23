@@ -1,114 +1,185 @@
-import React, { useEffect, useRef } from 'react';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-
-gsap.registerPlugin(ScrollTrigger);
+// src/components/HappilyCustomer.jsx
+import React from "react";
 
 const HappilyCustomer = () => {
-  const leftStack = useRef(null);
-  const rightStack = useRef(null);
-  const sectionRef = useRef(null);
-
-  useEffect(() => {
-    // Subtle Scroll Parallax (Halka sa hilne wala effect)
-    gsap.to(leftStack.current, {
-      y: -100, // Left side thoda upar jayega
-      ease: "none",
-      scrollTrigger: {
-        trigger: sectionRef.current,
-        start: "top bottom",
-        end: "bottom top",
-        scrub: 1.5,
-      }
-    });
-
-    gsap.to(rightStack.current, {
-      y: 100, // Right side thoda neeche jayega (Opposite movement for dynamic feel)
-      ease: "none",
-      scrollTrigger: {
-        trigger: sectionRef.current,
-        start: "top bottom",
-        end: "bottom top",
-        scrub: 1.5,
-      }
-    });
-  }, []);
-
   const leftImages = [
-    "https://cdn.prod.website-files.com/64a6caa646429ed756eb2d03/64a6cdff000962bbfb4a9ccb_sc1.jpg", // Yellow BG
-    "https://cdn.prod.website-files.com/64a6caa646429ed756eb2d03/64a6cdff000962bbfb4a9d0c_customer3.jpg", // Blue BG
-    "https://cdn.prod.website-files.com/64a6caa646429ed756eb2d03/64a6cdff000962bbfb4a9cc6_newsletter.jpg", // Green BG
+    "https://cdn.prod.website-files.com/64a6caa646429ed756eb2d03/64a6cdff000962bbfb4a9ccb_sc1.jpg",
+    "https://cdn.prod.website-files.com/64a6caa646429ed756eb2d03/64a6cdff000962bbfb4a9d0c_customer3.jpg",
+    "https://cdn.prod.website-files.com/64a6caa646429ed756eb2d03/64a6cdff000962bbfb4a9cc6_newsletter.jpg",
   ];
 
   const rightImages = [
-    "https://cdn.prod.website-files.com/64a6caa646429ed756eb2d03/64a6cdff000962bbfb4a9d07_customer1.jpg", // Pink BG
-    "https://cdn.prod.website-files.com/64a6caa646429ed756eb2d03/64a6cdff000962bbfb4a9cd0_main.jpg", // Blue BG
-    "https://cdn.prod.website-files.com/64a6caa646429ed756eb2d03/64a6cdff000962bbfb4a9cdd_customer2.jpg", // Flower Girl
+    "https://cdn.prod.website-files.com/64a6caa646429ed756eb2d03/64a6cdff000962bbfb4a9d07_customer1.jpg",
+    "https://cdn.prod.website-files.com/64a6caa646429ed756eb2d03/64a6cdff000962bbfb4a9cd0_main.jpg",
+    "https://cdn.prod.website-files.com/64a6caa646429ed756eb2d03/64a6cdff000962bbfb4a9cdd_customer2.jpg",
   ];
 
+  const circleBase = {
+    width: "220px",
+    height: "220px",
+    borderRadius: "50%",
+    overflow: "hidden",
+    border: "4px solid #111",
+    flexShrink: 0,
+    background: "#000",
+  };
+
   return (
-    <section ref={sectionRef} className="relative w-full min-h-screen bg-black flex items-center justify-center overflow-hidden py-20">
-      
-      {/* --- LEFT SIDE STACK --- */}
-      <div ref={leftStack} className="absolute left-[-60px] md:left-4 lg:left-10 flex flex-col items-start pointer-events-none">
-        {leftImages.map((img, i) => (
-          <div 
-            key={i} 
-            className="w-48 h-48 md:w-[280px] md:h-[280px] lg:w-[320px] lg:h-[320px] rounded-full overflow-hidden border-[10px] md:border-[15px] border-black shadow-2xl -mt-20 md:-mt-36 first:mt-0"
-            style={{ zIndex: i }} // Neeche wali image upar aayegi logic
-          >
-            <img src={img} alt="customer" className="w-full h-full object-cover" />
-          </div>
-        ))}
-      </div>
+    <div
+      style={{
+        backgroundColor: "black",
+        minHeight: "100vh",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        fontFamily: "'Segoe UI', sans-serif",
+        overflow: "hidden",
+        padding: "60px 0",
+      }}
+    >
+      <style>{`
+        .lift {
+          transform: scale(1.01);
+          box-shadow: 0 18px 50px rgba(0,0,0,0.55);
+          transition: transform 220ms ease, box-shadow 220ms ease, filter 220ms ease;
+          will-change: transform;
+        }
+        .lift:hover {
+          transform: scale(1.03);
+          box-shadow: 0 26px 70px rgba(0,0,0,0.65);
+        }
+      `}</style>
 
-      {/* --- CENTER CONTENT --- */}
-      <div className="text-center z-50 flex flex-col items-center px-4">
-        {/* +1M Section */}
-        <div className="relative inline-block">
-          <h1 className="text-[60px] md:text-[60px] lg:text-[100px] font-bold text-white tracking-tighter leading-none">
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between", // ✅ push left/right
+          width: "100%",
+          maxWidth: "1300px",
+          position: "relative",
+          padding: "0 100px", // ✅ breathing space from edges
+        }}
+      >
+        {/* LEFT STACK (sticks to left) */}
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "flex-start", // ✅ left aligned
+            width: "260px", // ✅ reserved space so center stays centered
+          }}
+        >
+          {leftImages.map((img, i) => (
+            <div
+              key={i}
+              className="lift"
+              style={{
+                ...circleBase,
+                marginTop: i === 0 ? "0" : "-40px",
+              }}
+            >
+              <img
+                src={img}
+                alt={`customer-left-${i}`}
+                style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+              />
+            </div>
+          ))}
+        </div>
+
+        {/* CENTER CONTENT (stays in middle) */}
+        <div
+          style={{
+            textAlign: "center",
+            zIndex: 2,
+            position: "relative",
+            width: "420px",
+            padding: "0 24px",
+            flexShrink: 0,
+          }}
+        >
+          <div
+            style={{
+              fontSize: "72px",
+              fontWeight: "800",
+              color: "#fff",
+              letterSpacing: "-2px",
+              lineHeight: 1,
+              marginBottom: "4px",
+            }}
+          >
             +1M
-          </h1>
-          {/* Red Arc Underline */}
-          <svg className="absolute -bottom-4 md:-bottom-10 left-0 w-full h-8 md:h-12" viewBox="0 0 200 20">
-            <path d="M15 15C60 5 140 5 185 15" stroke="#ef4444" strokeWidth="6" fill="none" strokeLinecap="round" />
-          </svg>
-        </div>
-
-        {/* Happy Customers Text */}
-        <div className="mt-12 md:mt-20 space-y-0">
-          <h2 className="text-[60px] md:text-[60px] lg:text-[100px] font-bold text-[#888888] tracking-tighter leading-[0.75]">
-            Happy
-          </h2>
-          <h2 className="text-[60px] md:text-[60px] lg:text-[100px] font-bold text-[#888888] tracking-tighter leading-[0.75]">
-            Customers
-          </h2>
-        </div>
-
-        {/* Read Reviews Link */}
-        <div className="mt-20 md:mt-32 relative inline-block group cursor-pointer">
-          <span className="text-lg md:text-2xl font-semibold text-white tracking-tight">Read Reviews</span>
-          {/* Green Arc */}
-          <svg className="absolute -bottom-3 left-0 w-full h-4" viewBox="0 0 150 20">
-            <path d="M10 15C40 5 110 5 140 15" stroke="#4ade80" strokeWidth="3" fill="none" strokeLinecap="round" />
-          </svg>
-        </div>
-      </div>
-
-      {/* --- RIGHT SIDE STACK --- */}
-      <div ref={rightStack} className="absolute right-[-60px] md:right-4 lg:right-10 flex flex-col items-end pointer-events-none">
-        {rightImages.map((img, i) => (
-          <div 
-            key={i} 
-            className="w-48 h-48 md:w-[280px] md:h-[280px] lg:w-[320px] lg:h-[320px] rounded-full overflow-hidden border-[10px] md:border-[15px] border-black shadow-2xl -mt-20 md:-mt-36 first:mt-0"
-            style={{ zIndex: i }}
-          >
-            <img src={img} alt="customer" className="w-full h-full object-cover" />
           </div>
-        ))}
-      </div>
 
-    </section>
+          <div style={{ display: "flex", justifyContent: "center", marginBottom: "8px" }}>
+            <svg width="160" height="18" viewBox="0 0 160 18" fill="none">
+              <path d="M6 13 Q80 1 154 13" stroke="#e53935" strokeWidth="6" strokeLinecap="round" />
+            </svg>
+          </div>
+
+          <div
+            style={{
+              fontSize: "78px",
+              fontWeight: "800",
+              color: "#888",
+              lineHeight: 0.9,
+              letterSpacing: "-1px",
+            }}
+          >
+            Happy
+            <br />
+            Customers
+          </div>
+
+          <div style={{ marginTop: "28px" }}>
+            <span
+              style={{
+                color: "#fff",
+                fontWeight: "600",
+                fontSize: "18px",
+                cursor: "pointer",
+                letterSpacing: "0.2px",
+              }}
+            >
+              Read Reviews
+            </span>
+            <div style={{ display: "flex", justifyContent: "center", marginTop: "4px" }}>
+              <svg width="150" height="12" viewBox="0 0 150 12" fill="none">
+                <path d="M6 9 Q75 1 144 9" stroke="#4caf50" strokeWidth="4" strokeLinecap="round" />
+              </svg>
+            </div>
+          </div>
+        </div>
+
+        {/* RIGHT STACK (sticks to right) */}
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "flex-end", // ✅ right aligned
+            width: "260px", // ✅ reserved space
+          }}
+        >
+          {rightImages.map((img, i) => (
+            <div
+              key={i}
+              className="lift"
+              style={{
+                ...circleBase,
+                marginTop: i === 0 ? "0" : "-40px",
+              }}
+            >
+              <img
+                src={img}
+                alt={`customer-right-${i}`}
+                style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+              />
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
   );
 };
 
