@@ -1,3 +1,4 @@
+// src/components/AllInOneProduct.jsx
 import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -20,7 +21,7 @@ const AllInOneProduct = () => {
       const sideW = leftEl.offsetWidth;
 
       const startOverlap = 0.75; // mostly hidden
-      const endOverlap = 0.2; // 20% still inside
+      const endOverlap = 0.2;    // 20% still inside
 
       const startDist = (centerW / 2 + sideW / 2) - startOverlap * sideW;
       const endDist = (centerW / 2 + sideW / 2) - endOverlap * sideW;
@@ -33,18 +34,19 @@ const AllInOneProduct = () => {
           trigger: sectionRef.current,
           start: "top top",
           end: "+=100%",
-          scrub: 2.5,
+          scrub: 0.6,  // ⬅ small scrub for smooth follow
           pin: true,
-          pinSpacing: false, // ✅ no extra gap
+          pinSpacing: false,
           anticipatePin: 1,
           invalidateOnRefresh: true,
         },
       });
 
-      tl.to(leftEl, { x: -endDist, ease: "none" }, 0);
-      tl.to(rightEl, { x: endDist, ease: "none" }, 0);
+      // smooth movement with small ease
+      tl.to(leftEl, { x: -endDist, ease: "power1.out" }, 0);
+      tl.to(rightEl, { x: endDist, ease: "power1.out" }, 0);
+      tl.fromTo(centerEl, { scale: 0.95 }, { scale: 1, ease: "power1.out" }, 0);
 
-      tl.fromTo(centerEl, { scale: 0.95 }, { scale: 1, ease: "none" }, 0);
     }, sectionRef);
 
     return () => ctx.revert();
@@ -52,7 +54,6 @@ const AllInOneProduct = () => {
 
   return (
     <>
-      {/* PINNED SECTION */}
       <section
         ref={sectionRef}
         className="relative z-20 w-full min-h-screen bg-black flex flex-col items-center justify-center overflow-hidden"
@@ -122,9 +123,8 @@ const AllInOneProduct = () => {
         </div>
       </section>
 
-      {/* ✅ SPACER (because pinSpacing:false) */}
+      {/* SPACER */}
       <div className="h-[100vh]" />
-
     </>
   );
 };

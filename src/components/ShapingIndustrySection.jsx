@@ -16,8 +16,8 @@ const ShapingIndustrySection = () => {
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: sectionRef.current,
-        start: "top 85%", 
-        end: "top 15%", 
+        start: "top 85%",
+        end: "top 15%",
         scrub: 1.5,
       },
     });
@@ -41,7 +41,7 @@ const ShapingIndustrySection = () => {
         {/* Back Card */}
         <div
           ref={leftBack}
-          className="relative w-[280px] h-[360px] md:w-[350px] md:h-[440px] rounded-[3.5rem] overflow-hidden shadow-2xl z-0"
+          className="relative w-[350px] h-[450px] md:w-[430px] md:h-[540px] rounded-[3.5rem] overflow-hidden shadow-2xl z-0"
         >
           <img
             src="https://cdn.prod.website-files.com/64a6caa646429ed756eb2d03/64a6cdff000962bbfb4a9cea_card1.jpg"
@@ -49,10 +49,10 @@ const ShapingIndustrySection = () => {
             alt=""
           />
         </div>
-        {/* Front Card (Uper wala) */}
+        {/* Front Card */}
         <div
           ref={leftFront}
-          className="absolute left-0 w-[280px] h-[520px] md:w-[350px] md:h-[520px] rounded-[3.5rem] overflow-hidden shadow-2xl z-10 border-4 border-black/30"
+          className="absolute left-0 w-[350px] h-[600px] md:w-[430px] md:h-[600px] rounded-[3.5rem] overflow-hidden shadow-2xl z-10 border-4 border-black/30"
           style={{ transform: "perspective(1200px) rotateY(18deg) rotateX(-8deg) rotateZ(6deg)" }}
         >
           <img
@@ -78,7 +78,7 @@ const ShapingIndustrySection = () => {
         {/* Back Card */}
         <div
           ref={rightBack}
-          className="relative w-[280px] h-[360px] md:w-[350px] md:h-[440px] rounded-[3.5rem] overflow-hidden shadow-2xl z-0 brightness-90"
+          className="relative w-[350px] h-[450px] md:w-[430px] md:h-[540px] rounded-[3.5rem] overflow-hidden shadow-2xl z-0 brightness-90"
         >
           <img
             src="https://cdn.prod.website-files.com/64a6caa646429ed756eb2d03/64a6cdff000962bbfb4a9d10_stewart-maclean-Zs1WKNa4Oy0-unsplash.jpg"
@@ -86,10 +86,10 @@ const ShapingIndustrySection = () => {
             alt=""
           />
         </div>
-        {/* Front Card (Uper wala) */}
+        {/* Front Card */}
         <div
           ref={rightFront}
-          className="absolute right-0 w-[280px] h-[520px] md:w-[350px] md:h-[520px] rounded-[3.5rem] overflow-hidden shadow-2xl z-10 border-4 border-black/30"
+          className="absolute right-0 w-[350px] h-[600px] md:w-[430px] md:h-[600px] rounded-[3.5rem] overflow-hidden shadow-2xl z-10 border-4 border-black/30"
         >
           <img
             src="https://cdn.prod.website-files.com/64a6caa646429ed756eb2d03/64a6cdff000962bbfb4a9cf9_card2.jpg" 

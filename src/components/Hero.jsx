@@ -18,25 +18,39 @@ export default function Hero() {
     return () => clearInterval(interval);
   }, []);
 
-  const logos = useMemo(() => Array(20).fill("Logo"), []);
+  const logos = useMemo(() => Array(30).fill("Logo"), []);
 
   return (
-    <section className="relative min-h-screen bg-black overflow-hidden flex items-start justify-center pt-24 sm:pt-28">
-      {/* glow */}
-      <div className="pointer-events-none absolute top-0 left-1/2 -translate-x-1/2 w-[520px] sm:w-[720px] lg:w-[900px] h-[340px] sm:h-[440px] lg:h-[520px] bg-[radial-gradient(ellipse_at_center_top,rgba(80,60,180,0.18),transparent_65%)]" />
+    <section className="relative min-h-screen bg-black overflow-hidden flex items-start justify-center pt-28">
 
-      {/* content */}
-      <div className="relative z-10 flex flex-col items-center text-center px-4 sm:px-6 w-full max-w-[1100px]">
-        <p className="text-white text-[16px] sm:text-[20px] lg:text-[25px] font-medium mb-3 sm:mb-4">
-          We're Clixr
-        </p>
+      <div className="relative z-10 flex flex-col items-center text-center px-4 w-full max-w-[1400px]">
+        
+      <p className="text-white text-[22px] font-medium mb-4">
+  We’re{" "}
+  <span className="relative inline-block px-1">
+    Clixr
+    {/* Exact Brush-style Curved Line */}
+    <span 
+      className="absolute left-0 -bottom-[2px] w-full h-[8px] opacity-90"
+      style={{ 
+        background: "radial-gradient(ellipse at center, #4ade80 0%, #22c55e 50%, transparent 100%)",
+        borderRadius: "50% 50% 0 0 / 100% 100% 0 0",
+        clipPath: "ellipse(55% 45% at 50% 100%)",
+        filter: "blur(0.3px)"
+      }}
+    ></span>
+  </span>
+</p>
 
-        <h1 className="text-[clamp(40px,8vw,92px)] font-semibold leading-[0.95] tracking-[-2px] bg-gradient-to-b from-white to-white/60 bg-clip-text text-transparent">
+
+        {/* We make */}
+        <h1 className="text-[clamp(60px,8vw,120px)] font-semibold leading-[0.95] tracking-[-2px] bg-gradient-to-b from-white to-[#bfbfbf] bg-clip-text text-transparent">
           We make
         </h1>
 
+        {/* Animated word */}
         <h1
-          className={`text-[clamp(40px,8vw,92px)] font-semibold leading-[1] tracking-[-2px] text-white transition-all duration-300 ${
+          className={`text-[clamp(60px,8vw,120px)] font-semibold leading-[1] tracking-[-2px] text-white transition-all duration-300 ${
             visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-3"
           }`}
         >
@@ -44,12 +58,12 @@ export default function Hero() {
         </h1>
 
         {/* Marquee + Button */}
-        <div className="relative mt-10 sm:mt-14 flex items-center justify-center w-full h-[112px] sm:h-[130px]">
-          {/* ✅ Marquee container (no blur, only fade with mask) */}
-          <div className="absolute inset-0 flex items-center justify-center pointer-events-none overflow-hidden marqueeMask">
-            {/* ✅ Track (2 identical groups) — CSS infinite, NO BREAK */}
+        <div className="relative mt-16 flex items-center justify-center w-screen h-[150px]">
+          
+          <div className="absolute left-1/2 -translate-x-1/2 w-[200vw] overflow-hidden">
             <div className="marqueeTrack">
-              <div className="marqueeGroup" aria-hidden="true">
+              
+              <div className="marqueeGroup">
                 {logos.map((l, i) => (
                   <span key={`a-${i}`} className="marqueeItem">
                     {l}
@@ -57,84 +71,69 @@ export default function Hero() {
                 ))}
               </div>
 
-              <div className="marqueeGroup" aria-hidden="true">
+              <div className="marqueeGroup">
                 {logos.map((l, i) => (
                   <span key={`b-${i}`} className="marqueeItem">
                     {l}
                   </span>
                 ))}
               </div>
+
             </div>
           </div>
 
           {/* Button */}
-          <button
-            className="relative z-20 w-[96px] h-[96px] sm:w-[120px] sm:h-[120px] lg:w-[130px] lg:h-[130px] rounded-full font-semibold text-white text-[13px] sm:text-[15px] lg:text-[16px] bg-gradient-to-br from-indigo-500 to-indigo-800 shadow-[0_0_60px_rgba(99,102,241,0.5),0_0_120px_rgba(99,102,241,0.2)] hover:scale-110 transition duration-300"
-            style={{ animation: "float 4s ease-in-out infinite" }}
-          >
-            Get Clixr
-          </button>
+ <button
+  className="relative z-20 w-[140px] h-[140px] rounded-full font-bold text-white text-[18px] 
+  bg-gradient-to-br from-[#050565]  to-[#030118]
+  hover:scale-105 transition-all duration-500 ease-in-out
+  border-2 border-white/20 flex items-center justify-center"
+  style={{
+    animation: "float 6s ease-in-out infinite",
+    boxShadow: `
+      0 0 40px 5px rgba(93, 95, 239, 0.4), 
+      inset 0 0 15px rgba(255, 255, 255, 0.2)
+    `,
+    textShadow: "0px 2px 4px rgba(0,0,0,0.3)"
+  }}
+>
+  Get Clixr
+</button>
+
         </div>
       </div>
 
       <style>{`
         @keyframes float {
-          0%, 100% { transform: translateY(0px); }
-          50%       { transform: translateY(-8px); }
+          0%,100% { transform: translateY(0px); }
+          50% { transform: translateY(-12px); }
         }
 
-        /* ✅ Edge fade (NOT blur) */
-        .marqueeMask{
-          -webkit-mask-image: linear-gradient(to right, transparent, black 12%, black 88%, transparent);
-          mask-image: linear-gradient(to right, transparent, black 12%, black 88%, transparent);
-        }
-
-        /* ✅ Seamless infinite scroll */
-        .marqueeTrack{
-          display: flex;
-          width: max-content;
-          will-change: transform;
-          transform: translate3d(0,0,0);
-          animation: marquee 28s linear infinite; /* ✅ slightly slower */
-        }
+       .marqueeTrack{
+  display: flex;
+  width: max-content;
+  animation: marquee 60s linear infinite; /* pehle 22s tha */
+}
 
         @keyframes marquee{
-          from { transform: translate3d(0,0,0); }
-          to   { transform: translate3d(-50%,0,0); }
+          from { transform: translateX(0); }
+          to { transform: translateX(-50%); }
         }
 
         .marqueeGroup{
           display: flex;
           align-items: center;
-          gap: 44px;              /* ✅ responsive gap default */
-          padding-right: 44px;
-        }
-
-        /* ✅ responsive gap + size */
-        @media (min-width: 640px){
-          .marqueeGroup{ gap: 70px; padding-right: 70px; }
-        }
-        @media (min-width: 1024px){
-          .marqueeGroup{ gap: 90px; padding-right: 90px; }
+          gap: 120px;
+          padding-right: 120px;
         }
 
         .marqueeItem{
-          color: rgba(255,255,255,0.45);
+          color: rgba(255,255,255,0.55);
           white-space: nowrap;
           font-weight: 500;
-          font-size: 16px;        /* ✅ mobile smaller */
-          filter: none;
-          backface-visibility: hidden;
-          -webkit-font-smoothing: antialiased;
-        }
-        @media (min-width: 640px){
-          .marqueeItem{ font-size: 20px; }
-        }
-        @media (min-width: 1024px){
-          .marqueeItem{ font-size: 24px; }
+          font-size: 26px;
         }
 
-        /* Accessibility: respect reduced motion */
         @media (prefers-reduced-motion: reduce){
           .marqueeTrack{ animation: none; }
           button{ animation: none !important; }
