@@ -86,7 +86,7 @@ const GalleryPage = () => {
                 style={{
                   borderRadius: `${cardRadius}px`,
                   WebkitMaskImage: "-webkit-radial-gradient(white, black)",
-                  height: `${cardHeight}px`,
+                  height: `${250}px`,
                 }}
               >
                 <img
@@ -123,7 +123,7 @@ const GalleryPage = () => {
                 style={{
                   borderRadius: `${cardRadius}px`,
                   WebkitMaskImage: "-webkit-radial-gradient(white, black)",
-                  height: `${cardHeight}px`,
+                  height: `${250}px`,
                 }}
               >
                 <img

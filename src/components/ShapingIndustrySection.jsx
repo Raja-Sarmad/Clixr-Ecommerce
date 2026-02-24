@@ -22,26 +22,39 @@ const ShapingIndustrySection = () => {
       },
     });
 
-    // LEFT SIDE
-    tl.fromTo(leftBack.current, { x: -400, rotate: 5 }, { x: -40, rotate: 2, duration: 1 }, 0);
-    tl.fromTo(leftFront.current, { x: -550, rotate: 20, y: 50 }, { x: -110, rotate: -15, y: 30, duration: 1 }, 0.1); 
+    // LEFT SIDE: Back card ko thoda sa andar layenge
+    tl.fromTo(leftBack.current, { x: -200 }, { x: 50, duration: 1 }, 0);
+    // Front card: Iska X itna rakhenge ke ye Back card ke upar overlap kare
+    tl.fromTo(leftFront.current, 
+      { x: -350, rotate: 20, y: 40 }, 
+      { x: -40, rotate: -12, y: 10, duration: 1 }, // x: -40 isko back card ke upar rakhega
+      0.1
+    ); 
 
     // RIGHT SIDE
-    tl.fromTo(rightBack.current, { x: 400, rotate: -5 }, { x: 40, rotate: -2, duration: 1 }, 0);
-    tl.fromTo(rightFront.current, { x: 550, rotate: -20, y: 50 }, { x: 110, rotate: 15, y: 30, duration: 1 }, 0.1); 
+    tl.fromTo(rightBack.current, { x: 200 }, { x: -50, duration: 1 }, 0);
+    tl.fromTo(rightFront.current, 
+      { x: 350, rotate: -20, y: 40 }, 
+      { x: 40, rotate: 12, y: 10, duration: 1 }, // x: 40 isko back card ke upar rakhega
+      0.1
+    ); 
   }, []);
+
+  // EXACT SIZES (Jo screen par fit aayein)
+  const cardW = "md:w-[380px]"; 
+  const cardH = "md:h-[500px]"; 
 
   return (
     <section
       ref={sectionRef}
-      className="relative w-full h-screen flex items-center justify-center bg-black overflow-hidden py-10"
+      className="relative w-full h-screen flex items-center justify-center bg-black overflow-hidden"
     >
       {/* --- LEFT SIDE CARDS --- */}
-      <div className="absolute left-0 top-1/2 -translate-y-1/2 flex items-center pointer-events-none">
-        {/* Back Card */}
+      <div className="absolute left-0 md:left-[2%] top-1/2 -translate-y-1/2 flex items-center pointer-events-none z-10">
+        {/* Back Card (Straight) */}
         <div
           ref={leftBack}
-          className="relative w-[350px] h-[450px] md:w-[430px] md:h-[540px] rounded-[3.5rem] overflow-hidden shadow-2xl z-0"
+          className={`relative w-[200px] h-[280px] ${cardW} ${cardH} rounded-[2.5rem] md:rounded-[3.5rem] overflow-hidden shadow-2xl z-0 brightness-75`}
         >
           <img
             src="https://cdn.prod.website-files.com/64a6caa646429ed756eb2d03/64a6cdff000962bbfb4a9cea_card1.jpg"
@@ -49,36 +62,44 @@ const ShapingIndustrySection = () => {
             alt=""
           />
         </div>
-        {/* Front Card */}
+        {/* Front Card (Overlapping like the reference) */}
         <div
           ref={leftFront}
-          className="absolute left-0 w-[350px] h-[600px] md:w-[430px] md:h-[600px] rounded-[3.5rem] overflow-hidden shadow-2xl z-10 border-4 border-black/30"
-          style={{ transform: "perspective(1200px) rotateY(18deg) rotateX(-8deg) rotateZ(6deg)" }}
+          className={`absolute left-0 w-[210px] h-[320px] ${cardW} ${cardH} rounded-[2.5rem] md:rounded-[3.5rem] overflow-hidden shadow-[0_30px_80px_rgba(0,0,0,0.8)] z-20 border-4 border-black/20`}
+          style={{ 
+             transform: "perspective(1200px) rotateY(18deg) rotateZ(-8deg)",
+             transformStyle: "preserve-3d"
+          }}
         >
           <img
             src="https://cdn.prod.website-files.com/64a6caa646429ed756eb2d03/64a6cdff000962bbfb4a9cd5_sc3.jpg"
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover shadow-inner"
             alt=""
           />
         </div>
       </div>
 
       {/* --- CENTER CONTENT --- */}
-      <div className="z-16 text-center flex flex-col items-center gap-3 px-10">
-        <h2 className="md:text-[80px] font-semibold text-white max-w-lg leading-[1.2] tracking-tighter pt-18">
-          We’re  Shaping  Industry
+      <div className="z-30 text-center flex flex-col items-center gap-6 px-4">
+        <h2 className="text-5xl md:text-[90px] font-bold text-white max-w-2xl leading-[1] tracking-tighter">
+          We’re <br /> Shaping <br /> Industry
         </h2>
-        <button className="relative w-36 h-36 md:w-44 md:h-44 flex items-center justify-center rounded-full bg-gradient-to-br from-[#3b448f] via-[#12142a] to-black text-white font-semibold text-lg transition-all duration-500 hover:scale-110 border border-white/10 px-0">
-          Get Clixr
-        </button>
+        
+        {/* Button */}
+        <div className="relative group cursor-pointer mt-4">
+          <div className="absolute inset-0 bg-blue-600 blur-[100px] opacity-10"></div>
+          <button className="relative w-36 h-36 md:w-44 md:h-44 rounded-full bg-gradient-to-br from-[#2a347e] via-[#12142a] to-black border border-white/10 flex items-center justify-center text-white transition-all duration-500 hover:scale-105 shadow-2xl">
+            <span className="text-lg font-medium">Get Clixr</span>
+          </button>
+        </div>
       </div>
 
       {/* --- RIGHT SIDE CARDS --- */}
-      <div className="absolute right-0 top-1/2 -translate-y-1/2 flex items-center justify-end pointer-events-none">
+      <div className="absolute right-0 md:right-[2%] top-1/2 -translate-y-1/2 flex items-center justify-end pointer-events-none z-10">
         {/* Back Card */}
         <div
           ref={rightBack}
-          className="relative w-[350px] h-[450px] md:w-[430px] md:h-[540px] rounded-[3.5rem] overflow-hidden shadow-2xl z-0 brightness-90"
+          className={`relative w-[200px] h-[280px] ${cardW} ${cardH} rounded-[2.5rem] md:rounded-[3.5rem] overflow-hidden shadow-2xl z-0 brightness-75`}
         >
           <img
             src="https://cdn.prod.website-files.com/64a6caa646429ed756eb2d03/64a6cdff000962bbfb4a9d10_stewart-maclean-Zs1WKNa4Oy0-unsplash.jpg"
@@ -89,7 +110,11 @@ const ShapingIndustrySection = () => {
         {/* Front Card */}
         <div
           ref={rightFront}
-          className="absolute right-0 w-[350px] h-[600px] md:w-[430px] md:h-[600px] rounded-[3.5rem] overflow-hidden shadow-2xl z-10 border-4 border-black/30"
+          className={`absolute right-0 w-[210px] h-[320px] ${cardW} ${cardH} rounded-[2.5rem] md:rounded-[3.5rem] overflow-hidden shadow-[0_30px_80px_rgba(0,0,0,0.8)] z-20 border-4 border-black/20`}
+          style={{ 
+             transform: "perspective(1200px) rotateY(-18deg) rotateZ(8deg)",
+             transformStyle: "preserve-3d"
+          }}
         >
           <img
             src="https://cdn.prod.website-files.com/64a6caa646429ed756eb2d03/64a6cdff000962bbfb4a9cf9_card2.jpg" 
