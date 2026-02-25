@@ -2,7 +2,7 @@ import React from 'react';
 
 const Product = () => {
   return (
-    <section className="bg-black text-white py-24 px-8 md:px-20 min-h-[500px] flex flex-col justify-center overflow-hidden">
+    <section className="bg-black text-white py-24 px-8 md:px-20 min-h-[300px] flex flex-col justify-center overflow-hidden">
       <div className="max-w-7xl mx-auto w-full">
         
         {/* First Line */}
