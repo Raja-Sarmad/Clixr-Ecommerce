@@ -1,9 +1,4 @@
-<<<<<<< HEAD
 import React, { useEffect, useMemo, useRef, useState } from "react";
-=======
-// src/components/GalleryPage.jsx
-import React, { useEffect, useMemo, useRef } from "react";
->>>>>>> c8497f578f22221fdedb4b7683130ab8b680ebf0
 
 const GalleryPage = () => {
   const topRowRef = useRef(null);
