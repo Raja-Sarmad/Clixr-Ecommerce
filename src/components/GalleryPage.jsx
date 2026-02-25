@@ -114,7 +114,7 @@ const GalleryPage = () => {
   }, []);
 
   return (
-    <div className="bg-[#050505] text-white min-h-[120vh] overflow-hidden rounded-b-[60px] sm:rounded-b-[80px]">
+    <div className="bg-[#050505] text-white -mt-30 sm:-mt-0 sm:min-h-[120vh] overflow-hidden rounded-b-[60px] sm:rounded-b-[80px]">
       <div className="sticky top-0 h-screen flex items-center overflow-hidden">
         {/* ✅ Responsive padding + spacing via Tailwind */}
         <div className="w-full px-4 sm:px-6 md:px-10 lg:px-12 space-y-3 sm:space-y-4 md:space-y-5">
