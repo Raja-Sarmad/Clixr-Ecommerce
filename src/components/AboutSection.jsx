@@ -35,7 +35,7 @@ const AboutSection = () => {
                 </svg>
               </span>
               <span className="text-[#555555]"> solutions </span>
-              <span className="text-[#555555]">
+              <span className="text-[#555555] leading-14 sm:leading-normal">
                 for growth by translating their future potential into a strategic brand narrative and authentic digital presence.
               </span>
             </p>

@@ -26,7 +26,7 @@ const ShapingIndustrySection = () => {
         scrollTrigger: {
           trigger: sectionRef.current,
           // ✅ START: Jab section 70% screen par aa jaye tab shuru ho (Jab aap pounch jayenge)
-          start: isMobile ? "top 75%" : "top 80%", 
+          start: isMobile ? "top 300%" : "top 300%", 
           // ✅ END: Jab section ka center screen ke top par pounch jaye
           end: isMobile ? "bottom 20%" : "bottom 20%",
           scrub: 1.8, // Thoda slow aur smooth rakha hai taaki movement nazar aaye
