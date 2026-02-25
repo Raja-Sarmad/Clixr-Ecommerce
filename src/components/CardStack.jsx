@@ -75,7 +75,7 @@ const CardStack = () => {
       */}
       <section
         ref={sectionRef}
-        className="relative w-full h-screen bg-black flex items-center justify-center"
+        className="relative w-full h-[80vh] sm:h-screen bg-black flex items-center justify-center"
       >
         {/* CARDS WRAPPER: items-center ensures middle alignment */}
         <div className="relative w-full flex items-center justify-center h-auto">
