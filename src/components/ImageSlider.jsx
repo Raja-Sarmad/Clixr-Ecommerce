@@ -5,8 +5,8 @@ const ImageSlider = () => {
   const containerRef = useRef(null);
 
   const baseImages = [
-    '/Gallery/e1.jpeg', '/Gallery/e2.jpeg', '/Gallery/e3.jpeg', 
-    '/Gallery/e4.jpeg', '/Gallery/e5.jpeg'
+    '/Gallery/image1.jpeg', '/Gallery/image29.jpeg', '/Gallery/image30.jpeg', 
+    '/Gallery/image4.jpeg', '/Gallery/image5.jpeg'
   ];
   
   const images = [...baseImages, ...baseImages];
