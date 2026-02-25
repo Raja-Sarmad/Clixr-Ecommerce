@@ -1,7 +1,6 @@
 import { Features } from "tailwindcss";
 import Hero from "./components/Hero";
 import Navbar from "./components/Navbar";
-
 import GalleryPage from "./components/GalleryPage";
 import TextSliderSection from "./components/TextSliderSection";
 import AboutSection from "./components/AboutSection";

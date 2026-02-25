@@ -1,4 +1,3 @@
-// src/components/GalleryPage.jsx
 import React, { useEffect, useMemo, useRef, useState } from "react";
 
 const GalleryPage = () => {
