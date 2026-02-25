@@ -73,10 +73,10 @@ const ShapingIndustrySection = () => {
       {/* --- TOP SET (Slide from Left) --- */}
       <div className="relative flex items-center justify-center w-full md:w-auto h-[320px] md:h-auto md:absolute md:left-[3%] z-10">
         <div ref={leftBack} className="relative w-[180px] h-[250px] md:w-[350px] md:h-[470px] rounded-[2.5rem] md:rounded-[4rem] overflow-hidden shadow-2xl brightness-[0.7] border border-white/5">
-          <img src="https://cdn.prod.website-files.com/64a6caa646429ed756eb2d03/64a6cdff000962bbfb4a9cea_card1.jpg" className="w-full h-full object-cover" alt="Back" />
+          <img src="/Gallery/image13.jpeg" className="w-full h-full object-cover" alt="Back" />
         </div>
         <div ref={leftFront} className="absolute w-[190px] h-[280px] md:w-[350px] md:h-[490px] rounded-[2.5rem] md:rounded-[3.5rem] overflow-hidden shadow-[0_40px_100px_rgba(0,0,0,1)] z-20 border border-white/10">
-          <img src="https://cdn.prod.website-files.com/64a6caa646429ed756eb2d03/64a6cdff000962bbfb4a9cd5_sc3.jpg" className="w-full h-full object-cover" alt="Front" />
+          <img src="/Gallery/image17.jpeg" className="w-full h-full object-cover" alt="Front" />
         </div>
       </div>
 
@@ -96,10 +96,10 @@ const ShapingIndustrySection = () => {
       {/* --- BOTTOM SET (Slide from Right) --- */}
       <div className="relative flex items-center justify-center w-full md:w-auto h-[320px] md:h-auto md:absolute md:right-[3%] md:top-1/2 md:-translate-y-1/2 z-10">
         <div ref={rightBack} className="relative w-[180px] h-[250px] md:w-[350px] md:h-[470px] rounded-[2.5rem] md:rounded-[4rem] overflow-hidden shadow-2xl brightness-[0.7] border border-white/5">
-          <img src="https://cdn.prod.website-files.com/64a6caa646429ed756eb2d03/64a6cdff000962bbfb4a9d10_stewart-maclean-Zs1WKNa4Oy0-unsplash.jpg" className="w-full h-full object-cover" alt="Back" />
+          <img src="/Gallery/image10.jpeg" className="w-full h-full object-cover" alt="Back" />
         </div>
         <div ref={rightFront} className="absolute w-[190px] h-[280px] md:w-[350px] md:h-[490px] rounded-[2.5rem] md:rounded-[3.5rem] overflow-hidden shadow-[0_40px_100px_rgba(0,0,0,1)] z-20 border border-white/10">
-          <img src="https://cdn.prod.website-files.com/64a6caa646429ed756eb2d03/64a6cdff000962bbfb4a9cf9_card2.jpg" className="w-full h-full object-cover" alt="Front" />
+          <img src="/Gallery/image21.jpeg" className="w-full h-full object-cover" alt="Front" />
         </div>
       </div>
     </section>
