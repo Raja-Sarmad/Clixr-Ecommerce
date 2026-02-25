@@ -74,7 +74,7 @@ const ThreecardsSection = () => {
         {/* Left Image */}
         <div
           ref={leftImageRef}
-          className="w-36 h-36 sm:w-48 sm:h-48 md:w-72 md:h-72 rounded-[35px] md:rounded-[55px] overflow-hidden border border-white/5 shadow-2xl will-change-transform"
+          className="w-40 h-40 sm:w-48 sm:h-48 md:w-72 md:h-72 rounded-[35px] md:rounded-[55px] overflow-hidden border border-white/5 shadow-2xl will-change-transform -translate-x-12 sm:-translate-x-0"
           style={{ transform: "rotate(-12deg)" }}
         >
           <img
@@ -87,7 +87,7 @@ const ThreecardsSection = () => {
         {/* Right Image (Desktop par side mein, mobile par top-right) */}
         <div
           ref={rightImageRef}
-          className="w-36 h-36 sm:w-48 sm:h-48 md:w-72 md:h-72 rounded-[35px] md:rounded-[55px] overflow-hidden border border-white/5 shadow-2xl will-change-transform"
+          className="w-40 h-40 sm:w-48 sm:h-48 md:w-72 md:h-72 rounded-[35px] md:rounded-[55px] overflow-hidden border border-white/5 shadow-2xl will-change-transform translate-x-12 sm:translate-x-0"
           style={{ transform: "rotate(12deg)" }}
         >
           <img
@@ -129,7 +129,7 @@ const ThreecardsSection = () => {
       <div className="mt-12 md:mt-24 relative z-10 pb-20">
         <div
           ref={centerImageRef}
-          className="w-64 h-72 sm:w-72 sm:h-80 md:w-[400px] md:h-[400px] rounded-[40px] md:rounded-[60px] overflow-hidden border border-white/5 shadow-[0_0_50px_rgba(0,0,0,0.8)] will-change-transform"
+          className="w-60 h-60 sm:w-72 sm:h-80 md:w-[400px] md:h-[400px] rounded-[40px] md:rounded-[60px] overflow-hidden border border-white/5 shadow-[0_0_50px_rgba(0,0,0,0.8)] will-change-transform"
         >
           <img
             src="https://cdn.prod.website-files.com/64a6caa646429ed756eb2d03/64a6cdff000962bbfb4a9cd0_main.jpg"
