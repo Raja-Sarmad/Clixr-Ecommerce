@@ -32,8 +32,8 @@ const CardStack = () => {
       cards.forEach((card, index) => {
         const factor = index - 2; 
         gsap.set(card, {
-          x: factor * (isMobile ? 25 : 40),      
-          rotate: factor * (isMobile ? 8 : 10), 
+          x: factor * (isMobile ? 20 : 40),      
+          rotate: factor * (isMobile ? 6 : 10), 
           y: 0,
           transformOrigin: "bottom center",
         });
@@ -44,9 +44,10 @@ const CardStack = () => {
         scrollTrigger: {
           trigger: sectionRef.current,
           start: "top top",      
-          end: "+=100%",         
+          // ✅ FIX: end ko chota kiya taaki gap khatam ho (Mobile: 50%, Desktop: 80%)
+          end: isMobile ? "+=50%" : "+=80%",         
           pin: true,             
-          scrub: 1.2, 
+          scrub: 1, 
           pinSpacing: true,      
           anticipatePin: 1,
         },
@@ -55,10 +56,10 @@ const CardStack = () => {
       cards.forEach((card, index) => {
         const factor = index - 2; 
         tl.to(card, {
-          x: factor * (isMobile ? 55 : 135), // Mobile par kam phailayenge taaki screen mein rahe
-          rotate: factor * (isMobile ? 12 : 16),  
-          y: -Math.abs(factor) * (isMobile ? 15 : 30), 
-          ease: "power2.out",
+          x: factor * (isMobile ? 45 : 135), 
+          rotate: factor * (isMobile ? 10 : 16),  
+          y: -Math.abs(factor) * (isMobile ? 10 : 30), 
+          ease: "none", // Scrub ke liye "none" sabse smooth hota hai
         }, 0);
       });
     });
@@ -70,15 +71,16 @@ const CardStack = () => {
     <div className="bg-black w-full overflow-hidden">
       <section
         ref={sectionRef}
-        className="relative w-full h-screen bg-black flex flex-col items-center justify-start md:justify-center"
+        // ✅ FIX: Mobile par h-[60vh] rakha hai taaki extra black space na ho
+        className="relative w-full h-[60vh] md:h-screen bg-black flex flex-col items-center justify-start md:justify-center"
       >
-        {/* CARDS WRAPPER - Mobile par top par, Desktop par center */}
+        {/* CARDS WRAPPER */}
         <div className="relative w-full flex items-center justify-center pt-24 md:pt-0 h-[40%] md:h-auto">
           {images.map((img, index) => (
             <div
               key={index}
               ref={(el) => (cardsRef.current[index] = el)}
-              className="absolute w-[160px] h-[200px] sm:w-[200px] sm:h-[260px] md:w-[340px] md:h-[400px] rounded-[2rem] md:rounded-[4rem] overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.8)] border border-white/10 bg-gray-900 will-change-transform"
+              className="absolute w-[150px] h-[190px] sm:w-[200px] sm:h-[260px] md:w-[340px] md:h-[400px] rounded-[2rem] md:rounded-[4rem] overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.8)] border border-white/10 bg-gray-900 will-change-transform"
               style={{ zIndex: index }}
             >
               <img
@@ -90,15 +92,9 @@ const CardStack = () => {
             </div>
           ))}
         </div>
-
-        {/* TEXT CONTENT - Jo aapki pic mein hai */}
-        <div className="relative z-30 mt-10 md:absolute md:bottom-20 md:mt-0 text-left md:text-center px-8 w-full max-w-4xl">
-          <h2 className="text-[32px] md:text-[50px] font-semibold text-gray-400 leading-[1.2] tracking-tight">
-            Unleash Your <br className="md:hidden" /> Potential with our <br />
-            <span className="text-white font-bold">Product</span>
-          </h2>
-        </div>
       </section>
+      
+      {/* Iske foran baad apka agla section (About wagera) aana chahiye */}
     </div>
   );
 };
