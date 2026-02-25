@@ -4,11 +4,11 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 // Images imports
-import img1 from "/Gallery/img1.jpg"
-import img3 from "/Gallery/img3.jpg"
-import img5 from "/Gallery/img5.jpg"
-import img6 from "/Gallery/img6.jpg"
-import img7 from "/Gallery/img7.jpg"
+import img1 from "/Gallery/image20.jpeg"
+import img3 from "/Gallery/image15.jpeg"
+import img5 from "/Gallery/image3.jpeg"
+import img6 from "/Gallery/image16.jpeg"
+import img7 from "/Gallery/image18.jpeg"
 
 gsap.registerPlugin(ScrollTrigger);
 

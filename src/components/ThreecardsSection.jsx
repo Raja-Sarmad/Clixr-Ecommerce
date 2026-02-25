@@ -78,7 +78,7 @@ const ThreecardsSection = () => {
           style={{ transform: "rotate(-12deg)" }}
         >
           <img
-            src="https://cdn.prod.website-files.com/64a6caa646429ed756eb2d03/64a6cdff000962bbfb4a9cd5_sc3.jpg"
+            src="/Gallery/image7.jpeg"
             alt="left"
             className="w-full h-full object-cover"
           />
@@ -91,7 +91,7 @@ const ThreecardsSection = () => {
           style={{ transform: "rotate(12deg)" }}
         >
           <img
-            src="https://cdn.prod.website-files.com/64a6caa646429ed756eb2d03/64a6cdff000962bbfb4a9ccb_sc1.jpg"
+            src="/Gallery/image17.jpeg"
             alt="right"
             className="w-full h-full object-cover"
           />
@@ -132,7 +132,7 @@ const ThreecardsSection = () => {
           className="w-60 h-60 sm:w-72 sm:h-80 md:w-[400px] md:h-[400px] rounded-[40px] md:rounded-[60px] overflow-hidden border border-white/5 shadow-[0_0_50px_rgba(0,0,0,0.8)] will-change-transform"
         >
           <img
-            src="https://cdn.prod.website-files.com/64a6caa646429ed756eb2d03/64a6cdff000962bbfb4a9cd0_main.jpg"
+            src="/Gallery/image15.jpeg"
             alt="center"
             className="w-full h-full object-cover"
           />
