@@ -44,7 +44,6 @@ const HappilyCustomer = () => {
         flexDirection: "column",
         alignItems: "center",
         justifyContent: "center",
-        fontFamily: "'Inter', sans-serif",
         overflow: "hidden", // Crucial for horizontal movement
         position: "relative",
         padding: "60px 0",
