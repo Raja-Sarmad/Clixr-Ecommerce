@@ -57,11 +57,6 @@ const AllInOneProduct = () => {
 
   return (
     <div className="bg-black">
-      {/* Upar thodi space taaki scroll effect feel ho */}
-      <div className="h-[50vh] flex items-end justify-center pb-10">
-        <p className="text-gray-500 animate-bounce">Scroll Down ↓</p>
-      </div>
-
       <section
         ref={sectionRef}
         className="relative w-full min-h-screen bg-black flex flex-col items-center justify-center overflow-hidden"
