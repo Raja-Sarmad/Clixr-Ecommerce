@@ -46,7 +46,7 @@ const FanCards = () => {
     // Dynamically load GSAP + ScrollTrigger
     const loadGSAP = async () => {
       const script1 = document.createElement("script");
-      script1.src = "https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js";
+      script1.src = "/Gallery/image25.jpeg";
       document.head.appendChild(script1);
 
       await new Promise((res) => (script1.onload = res));
