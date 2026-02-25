@@ -28,12 +28,12 @@ const CardStack = () => {
       let { isMobile } = context.conditions;
       const cards = cardsRef.current;
 
-      // --- INITIAL STATE ---
+      // --- INITIAL STATE: Cards load par stack rahenge ---
       cards.forEach((card, index) => {
         const factor = index - 2; 
         gsap.set(card, {
-          x: factor * (isMobile ? 20 : 40),      
-          rotate: factor * (isMobile ? 6 : 10), 
+          x: factor * (isMobile ? 15 : 40),      
+          rotate: factor * (isMobile ? 4 : 10), 
           y: 0,
           transformOrigin: "bottom center",
         });
@@ -43,12 +43,12 @@ const CardStack = () => {
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: sectionRef.current,
-          start: "top top",      
-          // ✅ FIX: end ko chota kiya taaki gap khatam ho (Mobile: 50%, Desktop: 80%)
-          end: isMobile ? "+=50%" : "+=80%",         
+          start: "top top",      // Section top pe aate hi pin ho jayega
+          // ✅ FIX: Mobile par duration choti rakhi hai taaki agla section forn aaye
+          end: isMobile ? "+=60%" : "+=100%",         
           pin: true,             
           scrub: 1, 
-          pinSpacing: true,      
+          pinSpacing: true,      // Ye agle section ko tab tak rokkega jab tak cards khul na jayein
           anticipatePin: 1,
         },
       });
@@ -56,10 +56,10 @@ const CardStack = () => {
       cards.forEach((card, index) => {
         const factor = index - 2; 
         tl.to(card, {
-          x: factor * (isMobile ? 45 : 135), 
-          rotate: factor * (isMobile ? 10 : 16),  
-          y: -Math.abs(factor) * (isMobile ? 10 : 30), 
-          ease: "none", // Scrub ke liye "none" sabse smooth hota hai
+          x: factor * (isMobile ? 65 : 135), // Mobile par perfect spread
+          rotate: factor * (isMobile ? 12 : 16),  
+          y: -Math.abs(factor) * (isMobile ? 15 : 30), 
+          ease: "none", 
         }, 0);
       });
     });
@@ -69,18 +69,21 @@ const CardStack = () => {
 
   return (
     <div className="bg-black w-full overflow-hidden">
+      {/* 
+        Section h-screen hai taaki Mobile aur Desktop dono par cards 
+        hamesha screen ke dead center (middle) mein animate hon.
+      */}
       <section
         ref={sectionRef}
-        // ✅ FIX: Mobile par h-[60vh] rakha hai taaki extra black space na ho
-        className="relative w-full h-[60vh] md:h-screen bg-black flex flex-col items-center justify-start md:justify-center"
+        className="relative w-full h-screen bg-black flex items-center justify-center"
       >
-        {/* CARDS WRAPPER */}
-        <div className="relative w-full flex items-center justify-center pt-24 md:pt-0 h-[40%] md:h-auto">
+        {/* CARDS WRAPPER: items-center ensures middle alignment */}
+        <div className="relative w-full flex items-center justify-center h-auto">
           {images.map((img, index) => (
             <div
               key={index}
               ref={(el) => (cardsRef.current[index] = el)}
-              className="absolute w-[150px] h-[190px] sm:w-[200px] sm:h-[260px] md:w-[340px] md:h-[400px] rounded-[2rem] md:rounded-[4rem] overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.8)] border border-white/10 bg-gray-900 will-change-transform"
+              className="absolute w-[160px] h-[210px] sm:w-[200px] sm:h-[260px] md:w-[340px] md:h-[400px] rounded-[2rem] md:rounded-[4rem] overflow-hidden shadow-[0_30px_80px_rgba(0,0,0,0.9)] border border-white/10 bg-gray-900 will-change-transform"
               style={{ zIndex: index }}
             >
               <img
@@ -94,7 +97,10 @@ const CardStack = () => {
         </div>
       </section>
       
-      {/* Iske foran baad apka agla section (About wagera) aana chahiye */}
+      {/* 
+        Ab iske foran baad jo bhi section hoga (About, Gallery etc.), 
+        wo cards khulne ke foran baad chipka hua nazar aayega.
+      */}
     </div>
   );
 };
