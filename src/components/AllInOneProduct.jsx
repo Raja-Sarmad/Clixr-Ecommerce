@@ -94,7 +94,7 @@ const AllInOneProduct = () => {
             className="absolute w-[240px] h-[260px] md:w-[320px] md:h-[340px] rounded-[3rem] overflow-hidden shadow-2xl z-10 brightness-50"
           >
             <img
-              src="/Gallery/image3.jpeg"
+              src="/Gallery/image26.jpeg"
               className="w-full h-full object-cover"
               alt="Left"
             />
@@ -106,7 +106,7 @@ const AllInOneProduct = () => {
             className="absolute w-[240px] h-[260px] md:w-[320px] md:h-[340px] rounded-[3rem] overflow-hidden shadow-2xl z-10 brightness-50"
           >
             <img
-              src="/Gallery/image19.jpeg"
+              src="/Gallery/image31.jpeg"
               className="w-full h-full object-cover"
               alt="Right"
             />
@@ -118,7 +118,7 @@ const AllInOneProduct = () => {
             className="absolute w-[300px] h-[300px] md:w-[460px] md:h-[400px] rounded-[3rem] overflow-hidden shadow-[0_0_100px_rgba(0,0,0,0.8)] z-20 border border-white/10"
           >
             <img
-              src="/Gallery/image25.jpeg"
+              src="/Gallery/image27.jpeg"
               className="w-full h-full object-cover"
               alt="Center"
             />
