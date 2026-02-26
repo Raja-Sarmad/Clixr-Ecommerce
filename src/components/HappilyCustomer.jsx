@@ -22,7 +22,6 @@ const HappilyCustomer = () => {
       if (!sectionRef.current) return;
       const rect = sectionRef.current.getBoundingClientRect();
       const vh = window.innerHeight;
-      // Calculate scroll progress (0 to 1)
       const progress = (vh - rect.top) / (vh + rect.height);
       setP(Math.max(0, Math.min(1, progress)));
     };
@@ -30,9 +29,8 @@ const HappilyCustomer = () => {
     return () => window.removeEventListener("scroll", update);
   }, []);
 
-  // Parallax calculations
-  const verticalShift = (p - 0.5) * 60; // For Desktop
-  const horizontalShift = (p - 0.5) * 150; // For Mobile slider effect
+  const verticalShift = (p - 0.5) * 60;
+  const horizontalShift = (p - 0.5) * 150;
 
   return (
     <div
@@ -44,7 +42,7 @@ const HappilyCustomer = () => {
         flexDirection: "column",
         alignItems: "center",
         justifyContent: "center",
-        overflow: "hidden", // Crucial for horizontal movement
+        overflow: "hidden",
         position: "relative",
         padding: "60px 0",
       }}
@@ -71,10 +69,8 @@ const HappilyCustomer = () => {
         .circle-img:first-child { margin-top: 0; }
         .circle-img img { width: 100%; height: 100%; object-fit: cover; }
 
-        /* Mobile Adjustments */
         @media (max-width: 768px) {
           .main-wrapper { flex-direction: column; padding: 0; gap: 40px; }
-          
           .image-stack { 
             flex-direction: row !important; 
             width: max-content; 
@@ -82,25 +78,18 @@ const HappilyCustomer = () => {
             padding: 0 20px;
             transition: transform 0.1s linear;
           }
-          
-          .circle-img { 
-            width: 160px; 
-            height: 160px; 
-            margin-top: 0 !important; 
-          }
-
-          .stack-top { order: 1; align-self: flex-start; } /* Moves Left to Right */
+          .circle-img { width: 160px; height: 160px; margin-top: 0 !important; }
+          .stack-top { order: 1; align-self: flex-start; }
           .center-content { order: 2; margin: 20px 0; }
-          .stack-bottom { order: 3; align-self: flex-end; } /* Moves Right to Left */
+          .stack-bottom { order: 3; align-self: flex-end; }
         }
       `}</style>
 
       <div className="main-wrapper">
-        {/* TOP IMAGES ROW (Slider effect on mobile) */}
         <div 
           className="image-stack stack-top" 
           style={{ 
-            transform: window.innerWidth > 768 
+            transform: typeof window !== 'undefined' && window.innerWidth > 768 
               ? `translateY(${verticalShift * -1}px)` 
               : `translateX(${horizontalShift}px)` 
           }}
@@ -110,10 +99,7 @@ const HappilyCustomer = () => {
           ))}
         </div>
 
-        {/* CENTER CONTENT */}
         <div className="center-content" style={{ textAlign: "center", zIndex: 10 }}>
-          
-          {/* +1M with Red Arc */}
           <div style={{ position: "relative", display: "inline-block" }}>
             <h1 style={{ color: "white", fontSize: "clamp(80px, 12vw, 110px)", fontWeight: "800", margin: 0, lineHeight: 0.8 }}>
               +1M
@@ -132,7 +118,6 @@ const HappilyCustomer = () => {
             </div>
           </div>
 
-          {/* Happy Customers Text */}
           <div style={{ marginTop: "20px" }}>
             <h2 style={{ 
               fontSize: "clamp(70px, 10vw, 100px)", 
@@ -146,19 +131,19 @@ const HappilyCustomer = () => {
             </h2>
           </div>
 
-          {/* Read Reviews with Green Arc */}
-          <div style={{ marginTop: "50px", cursor: "pointer" }}>
-            <p style={{ color: "white", fontWeight: "700", fontSize: "20px", margin: 0 }}>
+          {/* UPDATED: Read Reviews with Blue/Teal Arc */}
+          <div style={{ marginTop: "50px", cursor: "pointer" }} className="group">
+            <p style={{ color: "white", fontWeight: "700", fontSize: "20px", margin: 0 }} className="transition-colors hover:text-[#0b6472]">
               Read Reviews
             </p>
             <div style={{ marginTop: "5px", display: 'flex', justifyContent: 'center' }}>
               <svg width="160" height="16" viewBox="0 0 190 16" fill="none">
-                <path d="M10 12 Q95 1 180 12" stroke="url(#green-grad)" strokeWidth="6" strokeLinecap="round" />
+                <path d="M10 12 Q95 1 180 12" stroke="url(#blue-teal-grad)" strokeWidth="6" strokeLinecap="round" />
                 <defs>
-                  <linearGradient id="green-grad" x1="0%" y1="0%" x2="100%" y2="0%">
-                    <stop offset="0%" stopColor="#7CFF8C" />
-                    <stop offset="70%" stopColor="#7CFF8C" stopOpacity="0.8" />
-                    <stop offset="100%" stopColor="#003300" />
+                  <linearGradient id="blue-teal-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stopColor="#14b8a6" /> {/* Vibrant Cyan-Teal */}
+                    <stop offset="70%" stopColor="#0b6472" stopOpacity="0.8" /> {/* Main Teal */}
+                    <stop offset="100%" stopColor="#022227" /> {/* Darkest Teal */}
                   </linearGradient>
                 </defs>
               </svg>
@@ -166,11 +151,10 @@ const HappilyCustomer = () => {
           </div>
         </div>
 
-        {/* BOTTOM IMAGES ROW (Slider effect on mobile) */}
         <div 
           className="image-stack stack-bottom" 
           style={{ 
-            transform: window.innerWidth > 768 
+            transform: typeof window !== 'undefined' && window.innerWidth > 768 
               ? `translateY(${verticalShift}px)` 
               : `translateX(${horizontalShift * -1}px)` 
           }}

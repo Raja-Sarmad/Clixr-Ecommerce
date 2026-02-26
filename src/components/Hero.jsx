@@ -20,7 +20,6 @@ export default function Hero() {
   const logos = useMemo(() => Array(30).fill("Logo"), []);
 
   return (
-    // FIX: min-h-screen ko sirf desktop (md:) ke liye rakha hai, mobile par h-auto kiya hai
     <section className="relative h-auto md:min-h-screen bg-black overflow-hidden flex items-start justify-center pt-20 md:pt-28 pb-10 md:pb-0">
       <div className="relative z-10 flex flex-col items-center text-center px-4 w-full max-w-[1400px]">
         
@@ -28,13 +27,14 @@ export default function Hero() {
           We’re{" "}
           <span className="relative inline-block px-1">
             Clixr
+            {/* UPDATED: Green line changed to matching Blue/Teal Glow */}
             <span 
               className="absolute left-0 -bottom-[2px] w-full h-[8px] opacity-90"
               style={{ 
-                background: "radial-gradient(ellipse at center, #4ade80 0%, #22c55e 50%, transparent 100%)",
+                background: "radial-gradient(ellipse at center, #0b6472 0%, #022227 70%, transparent 100%)",
                 borderRadius: "50% 50% 0 0 / 100% 100% 0 0",
                 clipPath: "ellipse(55% 45% at 50% 100%)",
-                filter: "blur(0.3px)"
+                filter: "blur(0.5px)"
               }}
             ></span>
           </span>
@@ -50,7 +50,6 @@ export default function Hero() {
           {words[index]}
         </h1>
 
-        {/* Marquee area height adjusted for mobile */}
         <div className="relative mt-10 md:mt-16 flex items-center justify-center w-screen h-[120px] md:h-[150px]">
           <div className="absolute left-1/2 -translate-x-1/2 w-[200vw] overflow-hidden opacity-30">
             <div className="marqueeTrack">
@@ -65,7 +64,8 @@ export default function Hero() {
 
           <button
             className="relative z-20 w-[110px] h-[110px] md:w-[140px] md:h-[140px] rounded-full font-bold text-white text-[15px] md:text-[18px] 
-            bg-gradient-to-br from-[#050565] to-[#030118] border-2 border-white/20 flex items-center justify-center shadow-[0_0_40px_rgba(93,95,239,0.4)]"
+            bg-gradient-to-br from-[#0b6472] to-[#022227] border-2 border-white/20 flex items-center justify-center 
+            shadow-[0_0_40px_rgba(11,100,114,0.7)]"
             style={{ animation: "float 6s ease-in-out infinite" }}
           >
             Get Clixr

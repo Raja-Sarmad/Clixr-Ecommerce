@@ -96,20 +96,24 @@ const Navbar = () => {
               </div>
 
               <button
-                className={[
-                  "relative rounded-full p-[1px] transition-all duration-300 hover:scale-[1.05]",
-                  scrolled
-                    ? "drop-shadow-[0_12px_40px_rgba(0,0,0,0.6)]"
-                    : "",
-                ].join(" ")}
-              >
-                <span className="absolute inset-0 rounded-full blur-[8px] opacity-70 bg-gradient-to-r from-[#1e1e1e] via-[#2d2d2d] to-[#58c27d]" />
-                <span className="relative inline-flex items-center justify-center rounded-full px-5 md:px-7 py-[14px] md:py-[18px] border border-white/20 bg-gradient-to-r from-black/10 via-black/10 to-[#58c27d] hover:to-[#4ade80] transition-all duration-300">
-                  <span className="text-white font-semibold text-[14px] md:text-[16px] tracking-[-0.01em]">
-                    Copy This Site
-                  </span>
-                </span>
-              </button>
+  className={[
+    "relative rounded-full p-[1px] transition-all duration-300 hover:scale-[1.05] group",
+    scrolled ? "drop-shadow-[0_12px_40px_rgba(0,0,0,0.6)]" : "",
+  ].join(" ")}
+>
+  {/* Premium Teal Glow Background (Replaced Red) */}
+  <span className="absolute inset-0 rounded-full blur-[10px] opacity-60 bg-gradient-to-r from-[#0b6472] to-[#022227]" />
+
+  {/* Main Button Body - Colors matched with #0b6472 to #022227 */}
+  <span className="relative inline-flex items-center justify-center rounded-full px-5 md:px-7 py-[12px] md:py-[16px] border border-white/20 bg-gradient-to-br from-[#0b6472] to-[#022227] shadow-[0_0_25px_rgba(11,100,114,0.5)] group-hover:shadow-[0_0_35px_rgba(11,100,114,0.8)] transition-all duration-300">
+    
+    {/* Contact Us Text - Bold and Clear */}
+    <span className="text-white font-bold text-[14px] md:text-[16px] tracking-wider uppercase">
+      Contact us
+    </span>
+    
+  </span>
+</button>
             </div>
 
             {/* Mobile right */}
@@ -167,7 +171,7 @@ const Navbar = () => {
             <img
               src="/gallery/artlogo.png"
               alt="Art Logo"
-              className="h-[32px] w-auto object-contain"
+              className="h-[50px] w-auto object-contain"
             />
 
             <button
@@ -194,16 +198,22 @@ const Navbar = () => {
 
             <div className="mt-6">
               <button
-                onClick={() => setMenuOpen(false)}
-                className="relative w-full rounded-full p-[1px] transition-all duration-300 active:scale-[0.99]"
-              >
-                <span className="absolute inset-0 rounded-full blur-[10px] opacity-70 bg-gradient-to-r from-[#1e1e1e] via-[#2d2d2d] to-[#58c27d]" />
-                <span className="relative inline-flex w-full items-center justify-center rounded-full px-6 py-[16px] border border-white/20 bg-gradient-to-r from-black/10 via-black/10 to-[#58c27d] hover:to-[#4ade80] transition-all duration-300">
-                  <span className="text-white font-semibold text-[15px] tracking-[-0.01em]">
-                    Copy This Site
-                  </span>
-                </span>
-              </button>
+  onClick={() => setMenuOpen(false)}
+  className="relative w-full rounded-full p-[1px] transition-all duration-300 active:scale-[0.97] group"
+>
+  {/* Blue-ish Teal Glow Layer - Colors matched with #0b6472 */}
+  <span className="absolute inset-0 rounded-full blur-[12px] opacity-60 bg-gradient-to-r from-[#0b6472] to-[#022227]" />
+
+  {/* Button Content - Replaced Red/Wine with Dark Teal Gradient */}
+  <span className="relative inline-flex w-full items-center justify-center rounded-full px-6 py-[16px] border border-white/20 bg-gradient-to-br from-[#0b6472] to-[#022227] shadow-[0_0_30px_rgba(11,100,114,0.5)] group-hover:shadow-[0_0_45px_rgba(11,100,114,0.8)] transition-all duration-300">
+    
+    {/* Contact Us Text - Made it bold and clear */}
+    <span className="text-white font-black text-[16px] tracking-widest uppercase">
+      Contact Us
+    </span>
+    
+  </span>
+</button>
 
               <p className="mt-4 text-white/50 text-[13px] leading-relaxed">
                 Menu closes automatically on scroll/resize and backdrop click.

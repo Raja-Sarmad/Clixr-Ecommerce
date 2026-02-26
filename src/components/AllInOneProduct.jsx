@@ -7,7 +7,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 const AllInOneProduct = () => {
   const sectionRef = useRef(null);
-  const containerRef = useRef(null); // Cards container ke liye ref
+  const containerRef = useRef(null); 
   const leftCard = useRef(null);
   const rightCard = useRef(null);
   const centerCard = useRef(null);
@@ -21,31 +21,28 @@ const AllInOneProduct = () => {
       const centerW = centerEl.offsetWidth;
       const sideW = leftEl.offsetWidth;
 
-      // Logic: Shuruat mein cards center ke peeche thode zyada honge
       const startOverlap = 0.8; 
       const endOverlap = 0.1;    
 
       const startDist = (centerW / 2 + sideW / 2) - startOverlap * sideW;
       const endDist = (centerW / 2 + sideW / 2) - endOverlap * sideW;
 
-      // Initial Position
       gsap.set(leftEl, { x: -startDist });
       gsap.set(rightEl, { x: startDist });
 
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: sectionRef.current,
-          start: "bottom bottom", // Jab section ka bottom screen ke bottom mein aaye
-          end: "+=150%",          // Animation ki duration (kitna scroll lagega)
-          scrub: 1,               // Smooth follow (increase for more smoothness)
-          pin: true,              // Section ko wahi rok dega
-          pinSpacing: true,       // Neeche wala content tab tak nahi aayega jab tak animation khatam na ho
+          start: "bottom bottom", 
+          end: "+=150%",          
+          scrub: 1,               
+          pin: true,              
+          pinSpacing: true,       
           anticipatePin: 1,
           invalidateOnRefresh: true,
         },
       });
 
-      // Animation
       tl.to(leftEl, { x: -endDist, ease: "power2.out" }, 0)
         .to(rightEl, { x: endDist, ease: "power2.out" }, 0)
         .fromTo(centerEl, { scale: 0.9 }, { scale: 1, ease: "power2.out" }, 0);
@@ -70,15 +67,19 @@ const AllInOneProduct = () => {
             Product
           </h1>
 
-          <div className="mt-8 relative inline-flex flex-col items-center group cursor-pointer">
-            <div className="flex items-center gap-2 text-white text-lg md:text-xl font-medium">
-              Learn more <span className="text-green-400 text-2xl">→</span>
+          {/* UPDATED LEARN MORE SECTION */}
+          <div className="mt-8 relative inline-flex flex-col items-center group cursor-pointer transition-all duration-300">
+            <div className="flex items-center gap-2 text-white text-lg md:text-xl font-bold uppercase tracking-widest group-hover:text-[#0b6472] transition-colors">
+              Learn more 
+              <span className="text-[#0b6472] text-2xl transition-transform group-hover:translate-x-2">→</span>
             </div>
-            <svg className="w-24 h-4 mt-1" viewBox="0 0 100 20">
+            
+            {/* Wavy Line SVG - Replaced Green with Blue/Teal (#0b6472) */}
+            <svg className="w-28 h-4 mt-1" viewBox="0 0 100 20">
               <path
                 d="M5 15C25 5 75 5 95 15"
-                stroke="#4ade80"
-                strokeWidth="3"
+                stroke="#0b6472"
+                strokeWidth="4"
                 fill="none"
                 strokeLinecap="round"
               />
@@ -125,8 +126,6 @@ const AllInOneProduct = () => {
           </div>
         </div>
       </section>
-
-     
     </div>
   );
 };
