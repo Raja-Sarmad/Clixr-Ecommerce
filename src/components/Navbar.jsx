@@ -96,6 +96,7 @@ const Navbar = () => {
               </div>
 
               <button
+<<<<<<< HEAD
   className={[
     "relative rounded-full p-[1px] transition-all duration-300 hover:scale-[1.05] group",
     scrolled ? "drop-shadow-[0_12px_40px_rgba(0,0,0,0.6)]" : "",
@@ -114,6 +115,23 @@ const Navbar = () => {
     
   </span>
 </button>
+=======
+                className={[
+                  "relative rounded-full p-[1px] transition-all duration-300 hover:scale-[1.05]",
+                  scrolled
+                    ? "drop-shadow-[0_12px_40px_rgba(0,0,0,0.6)]"
+                    : "",
+                ].join(" ")}
+              >
+                <span className="absolute inset-0 rounded-full blur-[8px] opacity-70 bg-gradient-to-r from-[#1e1e1e] via-[#2d2d2d] to-[#58c27d]" />
+                <span className="relative inline-flex items-center justify-center rounded-full px-5 md:px-7 py-[14px] md:py-[18px] border border-white/20 bg-gradient-to-r from-black/10 via-black/10 to-[#58c27d] hover:to-[#4ade80] transition-all duration-300">
+                  <span className="text-white font-semibold text-[14px] md:text-[16px] tracking-[-0.01em]">
+                    Copy This Site
+                  </span>
+                </span>
+                
+              </button>
+>>>>>>> a9f00976ddb237ef78cf47bc978c1fb2aa54a921
             </div>
 
             {/* Mobile right */}
