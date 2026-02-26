@@ -24,9 +24,9 @@ export default function Hero() {
       <div className="relative z-10 flex flex-col items-center text-center px-4 w-full max-w-[1400px]">
         
         <p className="text-white text-[18px] md:text-[22px] font-medium mb-4">
-          We’re{" "}
+          By{" "}
           <span className="relative inline-block px-1">
-            Clixr
+            Ali Mehdi
             {/* UPDATED: Green line changed to matching Blue/Teal Glow */}
             <span 
               className="absolute left-0 -bottom-[2px] w-full h-[8px] opacity-90"
