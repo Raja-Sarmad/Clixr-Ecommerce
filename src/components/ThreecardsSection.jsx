@@ -132,7 +132,7 @@ const ThreecardsSection = () => {
           className="w-60 h-60 sm:w-72 sm:h-80 md:w-[400px] md:h-[400px] rounded-[40px] md:rounded-[60px] overflow-hidden border border-white/5 shadow-[0_0_50px_rgba(0,0,0,0.8)] will-change-transform"
         >
           <img
-            src="/Gallery/image33.jpeg"
+            src="/Gallery/image35.jpeg"
             alt="center"
             className="w-full h-full object-cover"
           />

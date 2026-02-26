@@ -48,7 +48,7 @@ const Audience = () => {
         {/* Avatar Section */}
         <div className="w-44 h-44 md:w-64 md:h-64 rounded-full overflow-hidden border-[6px] border-white/5 shadow-2xl">
           <img
-            src="/Gallery/image2.jpeg"
+            src="/Gallery/image39.png"
             alt="Surprised Man"
             className="w-full h-full object-cover"
           />
