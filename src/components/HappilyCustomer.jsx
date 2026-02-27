@@ -3,15 +3,15 @@ import React, { useEffect, useRef, useState } from "react";
 
 const HappilyCustomer = () => {
   const leftImages = [
-    "https://cdn.prod.website-files.com/64a6caa646429ed756eb2d03/64a6cdff000962bbfb4a9ccb_sc1.jpg",
-    "https://cdn.prod.website-files.com/64a6caa646429ed756eb2d03/64a6cdff000962bbfb4a9cd0_main.jpg",
-    "https://cdn.prod.website-files.com/64a6caa646429ed756eb2d03/64a6cdff000962bbfb4a9cc6_newsletter.jpg",
+    "/Gallery/image41.jpeg",
+    "/Gallery/image42.jpeg",
+    "/Gallery/image43.jpeg",
   ];
 
   const rightImages = [
-    "https://cdn.prod.website-files.com/64a6caa646429ed756eb2d03/64a6cdff000962bbfb4a9d07_customer1.jpg",
-    "https://cdn.prod.website-files.com/64a6caa646429ed756eb2d03/64a6cdff000962bbfb4a9d0c_customer3.jpg",
-    "https://cdn.prod.website-files.com/64a6caa646429ed756eb2d03/64a6cdff000962bbfb4a9cdd_customer2.jpg",
+    "/Gallery/image44.jpeg",
+    "/Gallery/image45.jpeg",
+    "/Gallery/image46.jpeg",
   ];
 
   const sectionRef = useRef(null);
@@ -26,124 +26,84 @@ const HappilyCustomer = () => {
       setP(Math.max(0, Math.min(1, progress)));
     };
     window.addEventListener("scroll", update);
+    update();
     return () => window.removeEventListener("scroll", update);
   }, []);
 
-  const verticalShift = (p - 0.5) * 60;
+  const verticalShift = (p - 0.5) * 100;
   const horizontalShift = (p - 0.5) * 150;
 
   return (
-    <div
+    <section
       ref={sectionRef}
-      style={{
-        backgroundColor: "black",
-        minHeight: "100vh",
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        justifyContent: "center",
-        overflow: "hidden",
-        position: "relative",
-        padding: "60px 0",
-      }}
+      className="bg-black min-h-screen flex flex-col items-center justify-center overflow-hidden relative py-20 px-4 md:px-0"
     >
-      <style>{`
-        .main-wrapper { 
-          display: flex; 
-          align-items: center; 
-          justify-content: space-between; 
-          width: 100%; 
-          max-width: 1400px; 
-          padding: 0 40px; 
-        }
-        .image-stack { display: flex; flex-direction: column; width: 220px; }
-        .circle-img { 
-          width: 220px; 
-          height: 220px; 
-          border-radius: 50%; 
-          overflow: hidden; 
-          border: 4px solid #111; 
-          margin-top: -50px; 
-          flex-shrink: 0;
-        }
-        .circle-img:first-child { margin-top: 0; }
-        .circle-img img { width: 100%; height: 100%; object-fit: cover; }
-
-        @media (max-width: 768px) {
-          .main-wrapper { flex-direction: column; padding: 0; gap: 40px; }
-          .image-stack { 
-            flex-direction: row !important; 
-            width: max-content; 
-            gap: 20px; 
-            padding: 0 20px;
-            transition: transform 0.1s linear;
-          }
-          .circle-img { width: 160px; height: 160px; margin-top: 0 !important; }
-          .stack-top { order: 1; align-self: flex-start; }
-          .center-content { order: 2; margin: 20px 0; }
-          .stack-bottom { order: 3; align-self: flex-end; }
-        }
-      `}</style>
-
-      <div className="main-wrapper">
+      <div className="flex flex-col md:flex-row items-center justify-between w-full max-w-[1400px] md:px-16 gap-12 md:gap-0">
+        
+        {/* LEFT / TOP IMAGES STACK */}
         <div 
-          className="image-stack stack-top" 
+          className="flex flex-row md:flex-col shrink-0 gap-4 md:gap-0 transition-transform duration-100 ease-linear self-start md:self-auto"
           style={{ 
             transform: typeof window !== 'undefined' && window.innerWidth > 768 
-              ? `translateY(${verticalShift * -1}px)` 
+              ? `translateY(${verticalShift * -1.2}px)` 
               : `translateX(${horizontalShift}px)` 
           }}
         >
           {leftImages.map((img, i) => (
-            <div key={i} className="circle-img"><img src={img} alt="" /></div>
+            <div 
+              key={i} 
+              className="w-[140px] h-[140px] md:w-[260px] md:h-[260px] rounded-full overflow-hidden border-[3px] border-white/10 md:-mt-16 first:mt-0 relative bg-zinc-900 shadow-2xl transition-all duration-500 hover:scale-105 hover:z-50 hover:border-[#0b6472]"
+            >
+              <img 
+                src={img} 
+                alt="Customer" 
+                className="w-full h-full object-fill object-cover" 
+              />
+            </div>
           ))}
         </div>
 
-        <div className="center-content" style={{ textAlign: "center", zIndex: 10 }}>
-          <div style={{ position: "relative", display: "inline-block" }}>
-            <h1 style={{ color: "white", fontSize: "clamp(80px, 12vw, 110px)", fontWeight: "800", margin: 0, lineHeight: 0.8 }}>
+        {/* CENTER CONTENT */}
+        <div className="text-center z-10 flex flex-col items-center">
+          
+          {/* +1M Area */}
+          <div className="relative inline-block">
+            <h1 className="text-white text-[85px] md:text-[130px] font-black leading-none tracking-[-4px] md:tracking-[-8px]">
               +1M
             </h1>
-            <div style={{ marginTop: "5px", display: 'flex', justifyContent: 'center' }}>
-              <svg width="180" height="22" viewBox="0 0 210 22" fill="none">
-                <path d="M10 18 Q105 2 200 18" stroke="url(#red-grad)" strokeWidth="10" strokeLinecap="round" />
+            <div className="mt-3 flex justify-center">
+              <svg width="220" height="24" viewBox="0 0 210 22" fill="none" className="w-[180px] md:w-[240px]">
+                <path d="M10 18 Q105 2 200 18" stroke="url(#red-grad)" strokeWidth="12" strokeLinecap="round" />
                 <defs>
                   <linearGradient id="red-grad" x1="0%" y1="0%" x2="100%" y2="0%">
                     <stop offset="0%" stopColor="#E63946" />
-                    <stop offset="70%" stopColor="#E63946" stopOpacity="0.8" />
-                    <stop offset="100%" stopColor="#300000" />
+                    <stop offset="100%" stopColor="#450a0a" />
                   </linearGradient>
                 </defs>
               </svg>
             </div>
           </div>
 
-          <div style={{ marginTop: "20px" }}>
-            <h2 style={{ 
-              fontSize: "clamp(70px, 10vw, 100px)", 
-              fontWeight: "600", 
-              color: "#666", 
-              lineHeight: "0.95", 
-              margin: 0,
-              letterSpacing: "-1px"
-            }}>
+          {/* Happy Customers Text */}
+          <div className="mt-10">
+            <h2 className="text-[#4a4a4a] text-[65px] md:text-[100px] font-bold leading-[0.85] tracking-tighter">
               Happy<br />Customers
             </h2>
           </div>
 
-          {/* UPDATED: Read Reviews with Blue/Teal Arc */}
-          <div style={{ marginTop: "50px", cursor: "pointer" }} className="group">
-            <p style={{ color: "white", fontWeight: "700", fontSize: "20px", margin: 0 }} className="transition-colors hover:text-[#0b6472]">
+          {/* Read Reviews Link */}
+          <div className="mt-14 cursor-pointer group flex flex-col items-center">
+            <p className="text-white font-bold text-xl md:text-2xl tracking-wide transition-all duration-300 group-hover:tracking-[0.2em] group-hover:text-[#14b8a6]">
               Read Reviews
             </p>
-            <div style={{ marginTop: "5px", display: 'flex', justifyContent: 'center' }}>
-              <svg width="160" height="16" viewBox="0 0 190 16" fill="none">
-                <path d="M10 12 Q95 1 180 12" stroke="url(#blue-teal-grad)" strokeWidth="6" strokeLinecap="round" />
+            <div className="mt-2">
+              <svg width="180" height="18" viewBox="0 0 190 16" fill="none" className="transition-transform duration-500 group-hover:scale-110">
+                <path d="M10 12 Q95 1 180 12" stroke="url(#blue-teal-grad)" strokeWidth="8" strokeLinecap="round" />
                 <defs>
                   <linearGradient id="blue-teal-grad" x1="0%" y1="0%" x2="100%" y2="0%">
-                    <stop offset="0%" stopColor="#14b8a6" /> {/* Vibrant Cyan-Teal */}
-                    <stop offset="70%" stopColor="#0b6472" stopOpacity="0.8" /> {/* Main Teal */}
-                    <stop offset="100%" stopColor="#022227" /> {/* Darkest Teal */}
+                    <stop offset="0%" stopColor="#14b8a6" />
+                    <stop offset="50%" stopColor="#0b6472" />
+                    <stop offset="100%" stopColor="#022227" />
                   </linearGradient>
                 </defs>
               </svg>
@@ -151,20 +111,31 @@ const HappilyCustomer = () => {
           </div>
         </div>
 
+        {/* RIGHT / BOTTOM IMAGES STACK */}
         <div 
-          className="image-stack stack-bottom" 
+          className="flex flex-row md:flex-col shrink-0 gap-4 md:gap-0 transition-transform duration-100 ease-linear self-end md:self-auto"
           style={{ 
             transform: typeof window !== 'undefined' && window.innerWidth > 768 
-              ? `translateY(${verticalShift}px)` 
+              ? `translateY(${verticalShift * 1.2}px)` 
               : `translateX(${horizontalShift * -1}px)` 
           }}
         >
           {rightImages.map((img, i) => (
-            <div key={i} className="circle-img"><img src={img} alt="" /></div>
+            <div 
+              key={i} 
+              className="w-[140px] h-[140px] md:w-[260px] md:h-[260px] rounded-full overflow-hidden border-[3px] border-white/10 md:-mt-16 first:mt-0 relative bg-zinc-900 shadow-2xl transition-all duration-500 hover:scale-105 hover:z-50 hover:border-[#0b6472]"
+            >
+              <img 
+                src={img} 
+                alt="Customer" 
+                className="w-full h-full object-fill object-cover" 
+              />
+            </div>
           ))}
         </div>
+
       </div>
-    </div>
+    </section>
   );
 };
 
