@@ -91,14 +91,8 @@ const HappilyCustomer = () => {
             </h2>
           </div>
 
-<<<<<<< HEAD
           <div style={{ marginTop: "50px", cursor: "pointer" }} className="group">
             <p style={{ color: "white", fontWeight: "700", fontSize: "20px", margin: 0 }} className="transition-colors hover:text-[#0b6472]">
-=======
-          {/* Read Reviews Link */}
-          <div className="mt-14 cursor-pointer group flex flex-col items-center">
-            <p className="text-white font-bold text-xl md:text-2xl tracking-wide transition-all duration-300 group-hover:tracking-[0.2em] group-hover:text-[#14b8a6]">
->>>>>>> 7d2e52562404e7340d3a8b30861ddbd3af545097
               Read Reviews
             </p>
             <div className="mt-2">
@@ -107,17 +101,9 @@ const HappilyCustomer = () => {
                 <defs>
                   <linearGradient id="blue-teal-grad" x1="0%" y1="0%" x2="100%" y2="0%">
                     <stop offset="0%" stopColor="#14b8a6" />
-<<<<<<< HEAD
                     <stop offset="70%" stopColor="#0b6472" stopOpacity="0.8" />
-=======
-                    <stop offset="50%" stopColor="#0b6472" />
->>>>>>> 7d2e52562404e7340d3a8b30861ddbd3af545097
                     <stop offset="100%" stopColor="#022227" />
-                  </linearGradient>
                 </defs>
-              </svg>
-            </div>
-          </div>
         </div>
 
         {/* RIGHT / BOTTOM IMAGES STACK */}
