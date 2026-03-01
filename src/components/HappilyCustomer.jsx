@@ -103,11 +103,7 @@ const HappilyCustomer = () => {
                     <stop offset="0%" stopColor="#14b8a6" />
                     <stop offset="70%" stopColor="#0b6472" stopOpacity="0.8" />
                     <stop offset="100%" stopColor="#022227" />
-                  </linearGradient>
                 </defs>
-              </svg>
-            </div>
-          </div>
         </div>
 
         {/* RIGHT / BOTTOM IMAGES STACK */}
