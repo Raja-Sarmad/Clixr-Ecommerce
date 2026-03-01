@@ -3,15 +3,15 @@ import React, { useEffect, useRef, useState } from "react";
 
 const HappilyCustomer = () => {
   const leftImages = [
-    "https://cdn.prod.website-files.com/64a6caa646429ed756eb2d03/64a6cdff000962bbfb4a9ccb_sc1.jpg",
-    "https://cdn.prod.website-files.com/64a6caa646429ed756eb2d03/64a6cdff000962bbfb4a9cd0_main.jpg",
-    "https://cdn.prod.website-files.com/64a6caa646429ed756eb2d03/64a6cdff000962bbfb4a9cc6_newsletter.jpg",
+    "/Gallery/image41.jpeg",
+    "/Gallery/image42.jpeg",
+    "/Gallery/image43.jpeg",
   ];
 
   const rightImages = [
-    "https://cdn.prod.website-files.com/64a6caa646429ed756eb2d03/64a6cdff000962bbfb4a9d07_customer1.jpg",
-    "https://cdn.prod.website-files.com/64a6caa646429ed756eb2d03/64a6cdff000962bbfb4a9d0c_customer3.jpg",
-    "https://cdn.prod.website-files.com/64a6caa646429ed756eb2d03/64a6cdff000962bbfb4a9cdd_customer2.jpg",
+    "/Gallery/image44.jpeg",
+    "/Gallery/image45.jpeg",
+    "/Gallery/image46.jpeg",
   ];
 
   const sectionRef = useRef(null);
@@ -131,7 +131,6 @@ const HappilyCustomer = () => {
             </h2>
           </div>
 
-          {/* UPDATED: Read Reviews with Blue/Teal Arc */}
           <div style={{ marginTop: "50px", cursor: "pointer" }} className="group">
             <p style={{ color: "white", fontWeight: "700", fontSize: "20px", margin: 0 }} className="transition-colors hover:text-[#0b6472]">
               Read Reviews
@@ -141,9 +140,9 @@ const HappilyCustomer = () => {
                 <path d="M10 12 Q95 1 180 12" stroke="url(#blue-teal-grad)" strokeWidth="6" strokeLinecap="round" />
                 <defs>
                   <linearGradient id="blue-teal-grad" x1="0%" y1="0%" x2="100%" y2="0%">
-                    <stop offset="0%" stopColor="#14b8a6" /> {/* Vibrant Cyan-Teal */}
-                    <stop offset="70%" stopColor="#0b6472" stopOpacity="0.8" /> {/* Main Teal */}
-                    <stop offset="100%" stopColor="#022227" /> {/* Darkest Teal */}
+                    <stop offset="0%" stopColor="#14b8a6" />
+                    <stop offset="70%" stopColor="#0b6472" stopOpacity="0.8" />
+                    <stop offset="100%" stopColor="#022227" />
                   </linearGradient>
                 </defs>
               </svg>

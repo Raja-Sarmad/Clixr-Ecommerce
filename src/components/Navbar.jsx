@@ -2,6 +2,7 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom"; 
 import { BiShoppingBag } from "react-icons/bi";
 import { HiMenuAlt3 } from "react-icons/hi";
 import { IoClose } from "react-icons/io5";
@@ -55,26 +56,25 @@ const Navbar = () => {
           {/* LEFT */}
           <div className="flex items-center gap-4 sm:gap-8 lg:gap-20">
             
-            {/* LOGO (Replaced Clixr text) */}
-            <div className="cursor-pointer transition-all duration-300">
+            {/* LOGO */}
+            <Link to="/paintings">
               <img
                 src="/Gallery/artlogo.png"
                 alt="Art Logo"
                 className={`h-[50px] sm:h-[50px] lg:h-[60px] w-auto pt-2 object-contain transition-all duration-300 ${
-                  scrolled
-                    ? "drop-shadow-[0_2px_12px_rgba(0,0,0,0.9)]"
-                    : ""
+                  scrolled ? "drop-shadow-[0_2px_12px_rgba(0,0,0,0.9)]" : ""
                 }`}
               />
-            </div>
+            </Link>
 
             {/* Desktop links */}
             <div className="hidden lg:flex items-center gap-10 xl:gap-14">
-              {["About", "Pricing", "FAQ"].map((t) => (
-                <a key={t} className={[linkBase, linkColor].join(" ")}>
-                  {t}
-                </a>
-              ))}
+<Link to="/paintings" className={[linkBase, linkColor].join(" ")}>
+    Paintings
+</Link>
+              <span className={[linkBase, linkColor].join(" ")}>About</span>
+              <span className={[linkBase, linkColor].join(" ")}>Pricing</span>
+              <span className={[linkBase, linkColor].join(" ")}>FAQ</span>
             </div>
           </div>
 
@@ -84,9 +84,7 @@ const Navbar = () => {
               <div
                 className={[
                   "relative cursor-pointer transition-transform duration-300 hover:scale-110",
-                  scrolled
-                    ? "drop-shadow-[0_4px_20px_rgba(0,0,0,0.85)]"
-                    : "",
+                  scrolled ? "drop-shadow-[0_4px_20px_rgba(0,0,0,0.85)]" : "",
                 ].join(" ")}
               >
                 <BiShoppingBag size={28} className="text-white" />
@@ -95,43 +93,24 @@ const Navbar = () => {
                 </span>
               </div>
 
+              {/* Contact Us Button Desktop */}
               <button
-  className={[
-    "relative rounded-full p-[1px] transition-all duration-300 hover:scale-[1.05] group",
-    scrolled ? "drop-shadow-[0_12px_40px_rgba(0,0,0,0.6)]" : "",
-  ].join(" ")}
->
-  {/* Premium Teal Glow Background (Replaced Red) */}
-  <span className="absolute inset-0 rounded-full blur-[10px] opacity-60 bg-gradient-to-r from-[#0b6472] to-[#022227]" />
-
-  {/* Main Button Body - Colors matched with #0b6472 to #022227 */}
-  <span className="relative inline-flex items-center justify-center rounded-full px-5 md:px-7 py-[12px] md:py-[16px] border border-white/20 bg-gradient-to-br from-[#0b6472] to-[#022227] shadow-[0_0_25px_rgba(11,100,114,0.5)] group-hover:shadow-[0_0_35px_rgba(11,100,114,0.8)] transition-all duration-300">
-    
-    {/* Contact Us Text - Bold and Clear */}
-    <span className="text-white font-bold text-[14px] md:text-[16px] tracking-wider uppercase">
-      Contact us
-    </span>
-    
-  </span>
-</button>
-            </div>
-
-            {/* Mobile right */}
-            <div className="flex sm:hidden items-center gap-3">
-              <div
                 className={[
-                  "relative cursor-pointer transition-transform duration-300 active:scale-95",
-                  scrolled
-                    ? "drop-shadow-[0_4px_20px_rgba(0,0,0,0.85)]"
-                    : "",
+                  "relative rounded-full p-[1px] transition-all duration-300 hover:scale-[1.05] group",
+                  scrolled ? "drop-shadow-[0_12px_40px_rgba(0,0,0,0.6)]" : "",
                 ].join(" ")}
               >
-                <BiShoppingBag size={26} className="text-white" />
-                <span className="absolute -bottom-1 -right-1 bg-white text-black text-[10px] font-bold h-[17px] w-[17px] rounded-full flex items-center justify-center shadow-md">
-                  0
+                <span className="absolute inset-0 rounded-full blur-[10px] opacity-60 bg-gradient-to-r from-[#0b6472] to-[#022227]" />
+                <span className="relative inline-flex items-center justify-center rounded-full px-5 md:px-7 py-[12px] md:py-[16px] border border-white/20 bg-gradient-to-br from-[#0b6472] to-[#022227] shadow-[0_0_25px_rgba(11,100,114,0.5)] group-hover:shadow-[0_0_35px_rgba(11,100,114,0.8)] transition-all duration-300">
+                  <span className="text-white font-bold text-[14px] md:text-[16px] tracking-wider uppercase">
+                    Contact Us
+                  </span>
                 </span>
-              </div>
+              </button>
+            </div>
 
+            {/* Mobile menu button */}
+            <div className="flex sm:hidden items-center gap-3">
               <button
                 onClick={() => setMenuOpen(true)}
                 className="text-white/90 hover:text-white transition active:scale-95"
@@ -166,13 +145,13 @@ const Navbar = () => {
           ].join(" ")}
         >
           <div className="px-5 pt-5 pb-4 flex items-center justify-between">
-            
-            {/* Mobile Logo */}
-            <img
-              src="/gallery/artlogo.png"
-              alt="Art Logo"
-              className="h-[50px] w-auto object-contain"
-            />
+            <Link to="/paintings" onClick={() => setMenuOpen(false)}>
+              <img
+                src="/gallery/artlogo.png"
+                alt="Art Logo"
+                className="h-[50px] w-auto object-contain"
+              />
+            </Link>
 
             <button
               onClick={() => setMenuOpen(false)}
@@ -183,42 +162,25 @@ const Navbar = () => {
             </button>
           </div>
 
-          <div className="px-5 py-3">
-            <div className="flex flex-col gap-3">
-              {["About", "Pricing", "FAQ"].map((t) => (
-                <a
-                  key={t}
-                  onClick={() => setMenuOpen(false)}
-                  className="text-white/85 hover:text-white transition text-[18px] font-medium py-3 border-b border-white/10"
-                >
-                  {t}
-                </a>
-              ))}
-            </div>
+          <div className="px-5 py-3 flex flex-col gap-3">
+            <Link to="/paintings" onClick={() => setMenuOpen(false)} className="text-white/85 hover:text-white text-[18px] font-medium py-3 border-b border-white/10">
+              Paintings
+            </Link>
+            <span className="text-white/85 hover:text-white text-[18px] font-medium py-3 border-b border-white/10">About</span>
+            <span className="text-white/85 hover:text-white text-[18px] font-medium py-3 border-b border-white/10">Pricing</span>
+            <span className="text-white/85 hover:text-white text-[18px] font-medium py-3 border-b border-white/10">FAQ</span>
 
-            <div className="mt-6">
-              <button
-  onClick={() => setMenuOpen(false)}
-  className="relative w-full rounded-full p-[1px] transition-all duration-300 active:scale-[0.97] group"
->
-  {/* Blue-ish Teal Glow Layer - Colors matched with #0b6472 */}
-  <span className="absolute inset-0 rounded-full blur-[12px] opacity-60 bg-gradient-to-r from-[#0b6472] to-[#022227]" />
-
-  {/* Button Content - Replaced Red/Wine with Dark Teal Gradient */}
-  <span className="relative inline-flex w-full items-center justify-center rounded-full px-6 py-[16px] border border-white/20 bg-gradient-to-br from-[#0b6472] to-[#022227] shadow-[0_0_30px_rgba(11,100,114,0.5)] group-hover:shadow-[0_0_45px_rgba(11,100,114,0.8)] transition-all duration-300">
-    
-    {/* Contact Us Text - Made it bold and clear */}
-    <span className="text-white font-black text-[16px] tracking-widest uppercase">
-      Contact Us
-    </span>
-    
-  </span>
-</button>
-
-              <p className="mt-4 text-white/50 text-[13px] leading-relaxed">
-                Menu closes automatically on scroll/resize and backdrop click.
-              </p>
-            </div>
+            {/* Contact Us Mobile */}
+            <button
+              className="relative w-full rounded-full p-[1px] mt-2 transition-all duration-300 active:scale-[0.97] group"
+            >
+              <span className="absolute inset-0 rounded-full blur-[12px] opacity-60 bg-gradient-to-r from-[#0b6472] to-[#022227]" />
+              <span className="relative inline-flex w-full items-center justify-center rounded-full px-6 py-[16px] border border-white/20 bg-gradient-to-br from-[#0b6472] to-[#022227] shadow-[0_0_30px_rgba(11,100,114,0.5)] group-hover:shadow-[0_0_45px_rgba(11,100,114,0.8)] transition-all duration-300">
+                <span className="text-white font-black text-[16px] tracking-widest uppercase">
+                  Contact Us
+                </span>
+              </span>
+            </button>
           </div>
         </div>
       </div>
