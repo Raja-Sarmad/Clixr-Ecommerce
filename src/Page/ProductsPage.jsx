@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { motion } from "framer-motion";
 import { FaDatabase } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const ProductsPage = () => {
   const [paintings, setPaintings] = useState([]);
@@ -12,45 +13,21 @@ const ProductsPage = () => {
     const fetchPaintings = async () => {
       console.log("📡 Connecting to Backend...");
       try {
-        // .env ke mutabiq port 4080 use kar rahe hain
         const res = await axios.get("http://localhost:4080/api/art");
-
         console.log("✅ Backend Response:", res.data);
 
-        // ✅ FIX 1: paintings state me hamesha array hi set karo
         const arts = Array.isArray(res.data?.data)
           ? res.data.data
           : Array.isArray(res.data)
           ? res.data
           : [];
 
-        // ✅ FIX 2: success field ho ya na ho, data agar array hai to show kar do
-        if (arts.length > 0) {
-          setPaintings(arts);
-
-          // ✅ FIX 3: cache me bhi array save karo
-          localStorage.setItem("cached_art", JSON.stringify(arts));
-
-          // ✅ FIX 4: agar pehle error tha to clear
-          setError(null);
-        } else {
-          // agar backend ne empty array diya hai to empty hi show hoga (valid case)
-          setPaintings([]);
-        }
+        setPaintings(arts);
+        setError(null);
       } catch (err) {
         console.error("❌ API Error:", err.message);
-        setError("Backend se connection nahi ho paa raha.");
-
-        // ✅ FIX 5: cached data fallback (array)
-        const cached = localStorage.getItem("cached_art");
-        if (cached) {
-          try {
-            const parsed = JSON.parse(cached);
-            if (Array.isArray(parsed)) setPaintings(parsed);
-          } catch (e) {
-            // ignore cache parse error
-          }
-        }
+        setError("Backend server is offline.");
+        setPaintings([]);
       } finally {
         setLoading(false);
       }
@@ -62,97 +39,104 @@ const ProductsPage = () => {
   if (loading)
     return (
       <div className="min-h-screen bg-black flex items-center justify-center flex-col gap-4">
-        <div className="w-12 h-12 border-4 border-[#0b6472] border-t-transparent rounded-full animate-spin"></div>
-        <p className="text-white font-mono tracking-widest animate-pulse">
-          FETCHING FROM CLOUD...
+        <div className="w-10 h-10 border-4 border-[#0b6472] border-t-transparent rounded-full animate-spin"></div>
+        <p className="text-white font-mono tracking-widest text-xs animate-pulse">
+          CONNECTING TO SERVER...
         </p>
       </div>
     );
 
   return (
-    <div className="min-h-screen bg-[#050505] text-white pt-32 pb-20 px-5">
+    <div className="min-h-screen bg-[#050505] text-white pt-28 pb-16 px-5">
       <div className="max-w-7xl mx-auto">
-        {/* Connection Status Indicator */}
-        <div className="flex items-center justify-center gap-2 mb-10">
-          <div
-            className={`w-2 h-2 rounded-full ${
-              error ? "bg-red-500" : "bg-green-500"
-            } animate-ping`}
-          ></div>
+
+        {/* Status Dot */}
+        <div className="flex items-center justify-center gap-2 mb-8">
+          
           <span className="text-[10px] font-mono text-gray-500 uppercase tracking-[0.3em]">
-            {error ? "Offline Mode" : "Live Backend Connected"}
+            
           </span>
         </div>
 
-        <div className="mb-20 text-center">
-          <h1 className="text-6xl md:text-8xl font-black tracking-tighter uppercase italic">
-            Art <span className="text-[#0b6472] not-italic">Vault</span>
+        {/* Heading */}
+        <div className="mb-14 text-center">
+          <h1 className="text-5xl md:text-7xl font-black tracking-tighter uppercase">
+            Art <span className="text-[#0b6472]">Vault</span>
           </h1>
-
-          {/* ✅ FIX: paintings hamesha array hai, length safe */}
-          <p className="text-gray-500 mt-4 font-mono tracking-widest text-xs">
-            Total Items in Collection: {paintings.length}
+          <p className="text-gray-500 mt-3 font-mono tracking-widest text-[11px]">
+            Total Paintings: {paintings.length}
           </p>
         </div>
 
+        {/* Grid */}
         {paintings.length > 0 ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {paintings.map((art) => (
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
+            {paintings.map((art, i) => (
               <motion.div
                 key={art._id}
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                className="bg-[#0c0c0c] border border-white/5 rounded-[24px] overflow-hidden group hover:border-[#0b6472] transition-all duration-500"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: i * 0.05, duration: 0.4 }}
+                className="bg-[#0c0c0c] border border-white/5 rounded-2xl overflow-hidden group hover:border-[#0b6472]/60 transition-all duration-400 hover:shadow-lg hover:shadow-[#0b6472]/10"
               >
-                <div className="h-[400px] overflow-hidden relative">
+                {/* Image */}
+                <div className="aspect-[3/4] overflow-hidden relative bg-[#111]">
                   <img
                     src={art.imageUrl}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0"
+                    className="w-full h-full object-cover object-center transition-transform duration-600 group-hover:scale-105 grayscale group-hover:grayscale-0"
                     alt={art.title}
                   />
-                  <div className="absolute bottom-4 left-4 bg-black/80 backdrop-blur-md px-3 py-1 rounded text-[10px] font-bold border border-white/10 tracking-widest uppercase">
+                  {/* Category Badge */}
+                  <div className="absolute top-3 left-3 bg-black/70 backdrop-blur-sm px-2.5 py-1 rounded-full text-[9px] font-bold border border-white/10 tracking-widest uppercase text-gray-300">
                     {art.category}
                   </div>
                 </div>
 
-                <div className="p-6">
-                  <div className="flex justify-between items-center mb-4">
-                    <h3 className="text-xl font-bold tracking-tight">
+                {/* Info */}
+                <div className="p-4">
+                  <div className="flex justify-between items-start mb-2 gap-2">
+                    <h3 className="text-sm font-bold tracking-tight leading-tight line-clamp-1 text-white">
                       {art.title}
                     </h3>
-                    <p className="text-[#0b6472] font-black text-xl">
-                      ${art.price}
+                    <p className="text-[#0b6472] font-black text-sm shrink-0">
+                      PKR {art.price}
                     </p>
                   </div>
 
-                  <p className="text-gray-500 text-sm mb-6 line-clamp-2 font-light italic leading-relaxed">
+                  <p className="text-gray-500 text-[11px] mb-4 line-clamp-2 font-light leading-relaxed">
                     {art.description}
                   </p>
 
-                  <div className="flex items-center justify-between border-t border-white/5 pt-5">
-                    <div className="flex items-center gap-2">
-                      <div className="w-6 h-6 rounded-full bg-gradient-to-br from-[#0b6472] to-black flex items-center justify-center text-[10px] font-bold text-white">
-                        {(art.artist?.charAt?.(0) || "?")}
+                  <div className="flex items-center justify-between border-t border-white/5 pt-3">
+                    {/* Artist */}
+                    <div className="flex items-center gap-1.5">
+                      <div className="w-5 h-5 rounded-full bg-gradient-to-br from-[#0b6472] to-[#031e22] flex items-center justify-center text-[9px] font-bold text-white shrink-0">
+                        {art.artist?.charAt(0) || "?"}
                       </div>
-                      <span className="text-[11px] font-bold text-gray-400 uppercase tracking-tighter">
+                      <span className="text-[10px] font-semibold text-gray-400 uppercase tracking-tight line-clamp-1">
                         {art.artist}
                       </span>
                     </div>
 
-                    <button className="text-[11px] font-bold text-white bg-[#0b6472] px-5 py-2 rounded-full hover:scale-105 transition-transform uppercase">
-                      View Details
-                    </button>
+                    {/* View Details */}
+                    <Link
+                      to={`/product/${art._id}`}
+                      className="text-[10px] font-bold text-white bg-[#0b6472] px-3.5 py-1.5 rounded-full hover:bg-[#0d7a8a] hover:scale-105 transition-all uppercase shrink-0"
+                    >
+                      View
+                    </Link>
                   </div>
                 </div>
               </motion.div>
             ))}
           </div>
         ) : (
-          <div className="text-center py-20 bg-white/5 rounded-[40px] border border-dashed border-white/10">
-            <FaDatabase className="mx-auto text-gray-700 mb-4 size-10" />
-            <p className="text-gray-500 font-mono italic">
-              "The gallery is currently empty. Add paintings via
-              Postman/Backend to see them here."
+          <div className="text-center py-16 bg-white/5 rounded-3xl border border-dashed border-white/10">
+            <FaDatabase className="mx-auto text-gray-700 mb-4 size-8" />
+            <p className="text-gray-500 font-mono text-sm">
+              {error
+                ? "Try Again After A Few Minutes."
+                : "The gallery is currently empty."}
             </p>
           </div>
         )}

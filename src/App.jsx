@@ -1,18 +1,28 @@
 // src/App.jsx
 import React from "react";
-import Navbar from "./components/Navbar";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Home from "./Page/Home"; // Tumhara existing home
-import ProductsPage from "./Page/ProductsPage"; // Paintings page
-
+import Navbar from "./components/Navbar";
+import Home from "./Page/Home";
+import ProductsPage from "./Page/ProductsPage";
+import ProductDetails from "./Page/ProductDetails"; // Naya page
+import { CartProvider } from "./context/CartContext"; // Cart setup
+import CartPage from "./Page/CartPage";
+import CheckoutPage from "./Page/CheckoutPage";
+import SuccessPage from "./Page/SuccessPage";
 export default function App() {
   return (
-    <Router>
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/paintings" element={<ProductsPage />} />
-      </Routes>
-    </Router>
+    <CartProvider>
+      <Router>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/paintings" element={<ProductsPage />} />
+          <Route path="/product/:id" element={<ProductDetails />} />
+          <Route path="/cart" element={<CartPage />} />
+          <Route path="/checkout" element={<CheckoutPage />} />
+<Route path="/success" element={<SuccessPage />} />
+        </Routes>
+      </Router>
+    </CartProvider>
   );
 }
