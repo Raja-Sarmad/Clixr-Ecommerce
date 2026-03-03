@@ -11,6 +11,7 @@ import CardStack from "../components/CardStack";
 import ThreecardsSection from "../components/ThreecardsSection";
 import Audience from "../components/Audience";
 import ImageSlider from "../components/ImageSlider";
+import Footer from '../components/Footer';
 
 export const Home = () => {
   return (
@@ -27,6 +28,7 @@ export const Home = () => {
       <ImageSlider />
       <Audience />
       <HappilyCustomer />
+      <Footer />
       </>
   )
 }

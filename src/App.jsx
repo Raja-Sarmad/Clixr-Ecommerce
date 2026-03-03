@@ -9,6 +9,7 @@ import { CartProvider } from "./context/CartContext"; // Cart setup
 import CartPage from "./Page/CartPage";
 import CheckoutPage from "./Page/CheckoutPage";
 import SuccessPage from "./Page/SuccessPage";
+import Footer from "./components/Footer";
 export default function App() {
   return (
     <CartProvider>
