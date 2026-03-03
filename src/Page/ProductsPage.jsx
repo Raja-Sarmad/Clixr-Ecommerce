@@ -50,14 +50,6 @@ const ProductsPage = () => {
     <div className="min-h-screen bg-[#050505] text-white pt-28 pb-16 px-5">
       <div className="max-w-7xl mx-auto">
 
-        {/* Status Dot */}
-        <div className="flex items-center justify-center gap-2 mb-8">
-          
-          <span className="text-[10px] font-mono text-gray-500 uppercase tracking-[0.3em]">
-            
-          </span>
-        </div>
-
         {/* Heading */}
         <div className="mb-14 text-center">
           <h1 className="text-5xl md:text-7xl font-black tracking-tighter uppercase">
@@ -79,11 +71,12 @@ const ProductsPage = () => {
                 transition={{ delay: i * 0.05, duration: 0.4 }}
                 className="bg-[#0c0c0c] border border-white/5 rounded-2xl overflow-hidden group hover:border-[#0b6472]/60 transition-all duration-400 hover:shadow-lg hover:shadow-[#0b6472]/10"
               >
-                {/* Image */}
+                {/* Image Section */}
                 <div className="aspect-[3/4] overflow-hidden relative bg-[#111]">
                   <img
                     src={art.imageUrl}
-                    className="w-full h-full object-cover object-center transition-transform duration-600 group-hover:scale-105 grayscale group-hover:grayscale-0"
+                    /* Grayscale classes removed here to show real colors */
+                    className="w-full h-full object-cover object-center transition-transform duration-600 group-hover:scale-105"
                     alt={art.title}
                   />
                   {/* Category Badge */}
@@ -92,7 +85,7 @@ const ProductsPage = () => {
                   </div>
                 </div>
 
-                {/* Info */}
+                {/* Info Section */}
                 <div className="p-4">
                   <div className="flex justify-between items-start mb-2 gap-2">
                     <h3 className="text-sm font-bold tracking-tight leading-tight line-clamp-1 text-white">
@@ -118,7 +111,7 @@ const ProductsPage = () => {
                       </span>
                     </div>
 
-                    {/* View Details */}
+                    {/* View Details Button */}
                     <Link
                       to={`/product/${art._id}`}
                       className="text-[10px] font-bold text-white bg-[#0b6472] px-3.5 py-1.5 rounded-full hover:bg-[#0d7a8a] hover:scale-105 transition-all uppercase shrink-0"
