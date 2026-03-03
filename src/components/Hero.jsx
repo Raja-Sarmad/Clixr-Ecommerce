@@ -21,14 +21,16 @@ export default function Hero() {
   const logos = useMemo(() => Array(30).fill("Logo"), []);
 
   return (
-    <section className="relative h-auto md:min-h-screen bg-black overflow-hidden flex items-start justify-center pt-20 md:pt-28 pb-10 md:pb-0">
+    <section
+      id="home"
+      className="relative h-auto md:min-h-screen bg-black overflow-hidden flex items-start justify-center pt-20 md:pt-28 pb-10 md:pb-0"
+    >
       <div className="relative z-10 flex flex-col items-center text-center px-4 w-full max-w-[1400px]">
         
         <p className="text-white text-[18px] md:text-[22px] font-medium mb-4">
           By{" "}
           <span className="relative inline-block px-1">
             Ali Mehdi
-            {/* UPDATED: Green line changed to matching Blue/Teal Glow */}
             <span 
               className="absolute left-0 -bottom-[2px] w-full h-[8px] opacity-90"
               style={{ 
@@ -78,8 +80,8 @@ export default function Hero() {
         @keyframes float { 0%,100% { transform: translateY(0px); } 50% { transform: translateY(-10px); } }
         .marqueeTrack { display: flex; width: max-content; animation: marquee 60s linear infinite; }
         @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-        .marqueeGroup { display: flex; align-items: center; gap: 60px; md:gap: 120px; padding-right: 60px; }
-        .marqueeItem { color: rgba(255,255,255,0.55); white-space: nowrap; font-size: 20px; md:font-size: 26px; }
+        .marqueeGroup { display: flex; align-items: center; gap: 60px; padding-right: 60px; }
+        .marqueeItem { color: rgba(255,255,255,0.55); white-space: nowrap; font-size: 20px; }
       `}</style>
     </section>
   );

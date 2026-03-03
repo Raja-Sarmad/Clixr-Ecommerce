@@ -12,7 +12,6 @@ const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
-  // ✅ cart count from context
   const { cartCount } = useCart();
 
   useEffect(() => {
@@ -58,10 +57,12 @@ const Navbar = () => {
 
       <div className="relative px-5 sm:px-8 md:px-14 lg:px-20">
         <div className="max-w-[1600px] mx-auto h-[76px] sm:h-[82px] lg:h-[88px] flex items-center justify-between">
+
           {/* LEFT */}
           <div className="flex items-center gap-4 sm:gap-8 lg:gap-20">
-            {/* LOGO */}
-            <Link to="/paintings" onClick={closeMenu}>
+
+            {/* LOGO → HOME */}
+            <Link to="/#home" onClick={closeMenu}>
               <img
                 src="/Gallery/artlogo.png"
                 alt="Art Logo"
@@ -73,6 +74,12 @@ const Navbar = () => {
 
             {/* Desktop links */}
             <div className="hidden lg:flex items-center gap-10 xl:gap-14">
+
+              {/* ✅ HOME ADDED */}
+              <Link to="/#home" className={[linkBase, linkColor].join(" ")}>
+                Home
+              </Link>
+
               <Link to="/paintings" className={[linkBase, linkColor].join(" ")}>
                 Paintings
               </Link>
@@ -84,9 +91,11 @@ const Navbar = () => {
 
           {/* RIGHT */}
           <div className="flex items-center gap-3 sm:gap-4">
+
             {/* Desktop right */}
             <div className="hidden sm:flex items-center gap-3 sm:gap-4">
-              {/* ✅ Cart Icon (Desktop) */}
+
+              {/* Cart Icon */}
               <Link
                 to="/cart"
                 className={[
@@ -101,15 +110,10 @@ const Navbar = () => {
                 </span>
               </Link>
 
-              {/* Contact Us Button Desktop */}
-              <button
-                className={[
-                  "relative rounded-full p-[1px] transition-all duration-300 hover:scale-[1.05] group",
-                  scrolled ? "drop-shadow-[0_12px_40px_rgba(0,0,0,0.6)]" : "",
-                ].join(" ")}
-              >
+              {/* Contact Button */}
+              <button className="relative rounded-full p-[1px] transition-all duration-300 hover:scale-[1.05] group">
                 <span className="absolute inset-0 rounded-full blur-[10px] opacity-60 bg-gradient-to-r from-[#0b6472] to-[#022227]" />
-                <span className="relative inline-flex items-center justify-center rounded-full px-5 md:px-7 py-[12px] md:py-[16px] border border-white/20 bg-gradient-to-br from-[#0b6472] to-[#022227] shadow-[0_0_25px_rgba(11,100,114,0.5)] group-hover:shadow-[0_0_35px_rgba(11,100,114,0.8)] transition-all duration-300">
+                <span className="relative inline-flex items-center justify-center rounded-full px-5 md:px-7 py-[12px] md:py-[16px] border border-white/20 bg-gradient-to-br from-[#0b6472] to-[#022227] shadow-[0_0_25px_rgba(11,100,114,0.5)]">
                   <span className="text-white font-bold text-[14px] md:text-[16px] tracking-wider uppercase">
                     Contact Us
                   </span>
@@ -119,12 +123,7 @@ const Navbar = () => {
 
             {/* Mobile right */}
             <div className="flex sm:hidden items-center gap-3">
-              {/* ✅ Cart Icon (Mobile) */}
-              <Link
-                to="/cart"
-                className="relative text-white/90 hover:text-white transition active:scale-95"
-                aria-label="Open cart"
-              >
+              <Link to="/cart" className="relative text-white/90 hover:text-white transition active:scale-95">
                 <BiShoppingBag size={26} className="text-white" />
                 <span className="absolute -bottom-1 -right-1 bg-white text-black text-[10px] font-bold h-[16px] w-[16px] rounded-full flex items-center justify-center shadow-md">
                   {cartCount || 0}
@@ -134,7 +133,6 @@ const Navbar = () => {
               <button
                 onClick={() => setMenuOpen(true)}
                 className="text-white/90 hover:text-white transition active:scale-95"
-                aria-label="Open menu"
               >
                 <HiMenuAlt3 size={28} />
               </button>
@@ -163,7 +161,9 @@ const Navbar = () => {
           ].join(" ")}
         >
           <div className="px-5 pt-5 pb-4 flex items-center justify-between">
-            <Link to="/paintings" onClick={closeMenu}>
+
+            {/* LOGO MOBILE → HOME */}
+            <Link to="/#home" onClick={closeMenu}>
               <img
                 src="/Gallery/artlogo.png"
                 alt="Art Logo"
@@ -171,16 +171,22 @@ const Navbar = () => {
               />
             </Link>
 
-            <button
-              onClick={closeMenu}
-              className="text-white/80 hover:text-white transition active:scale-95"
-              aria-label="Close menu"
-            >
+            <button onClick={closeMenu} className="text-white/80 hover:text-white transition active:scale-95">
               <IoClose size={28} />
             </button>
           </div>
 
           <div className="px-5 py-3 flex flex-col gap-3">
+
+            {/* ✅ HOME ADDED */}
+            <Link
+              to="/#home"
+              onClick={closeMenu}
+              className="text-white/85 hover:text-white text-[18px] font-medium py-3 border-b border-white/10"
+            >
+              Home
+            </Link>
+
             <Link
               to="/paintings"
               onClick={closeMenu}
@@ -188,37 +194,16 @@ const Navbar = () => {
             >
               Paintings
             </Link>
-            <span className="text-white/85 hover:text-white text-[18px] font-medium py-3 border-b border-white/10">
+
+            <span className="text-white/85 text-[18px] font-medium py-3 border-b border-white/10">
               About
             </span>
-            <span className="text-white/85 hover:text-white text-[18px] font-medium py-3 border-b border-white/10">
+            <span className="text-white/85 text-[18px] font-medium py-3 border-b border-white/10">
               Pricing
             </span>
-            <span className="text-white/85 hover:text-white text-[18px] font-medium py-3 border-b border-white/10">
+            <span className="text-white/85 text-[18px] font-medium py-3 border-b border-white/10">
               FAQ
             </span>
-
-            {/* ✅ Cart inside mobile menu */}
-            <Link
-              to="/cart"
-              onClick={closeMenu}
-              className="text-white/85 hover:text-white text-[18px] font-medium py-3 border-b border-white/10 flex items-center justify-between"
-            >
-              <span>Cart</span>
-              <span className="bg-white text-black text-[11px] font-bold h-[18px] min-w-[18px] px-1 rounded-full flex items-center justify-center shadow-md">
-                {cartCount || 0}
-              </span>
-            </Link>
-
-            {/* Contact Us Mobile */}
-            <button className="relative w-full rounded-full p-[1px] mt-2 transition-all duration-300 active:scale-[0.97] group">
-              <span className="absolute inset-0 rounded-full blur-[12px] opacity-60 bg-gradient-to-r from-[#0b6472] to-[#022227]" />
-              <span className="relative inline-flex w-full items-center justify-center rounded-full px-6 py-[16px] border border-white/20 bg-gradient-to-br from-[#0b6472] to-[#022227] shadow-[0_0_30px_rgba(11,100,114,0.5)] group-hover:shadow-[0_0_45px_rgba(11,100,114,0.8)] transition-all duration-300">
-                <span className="text-white font-black text-[16px] tracking-widest uppercase">
-                  Contact Us
-                </span>
-              </span>
-            </button>
           </div>
         </div>
       </div>
