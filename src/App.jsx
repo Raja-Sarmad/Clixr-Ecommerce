@@ -9,7 +9,7 @@ import { CartProvider } from "./context/CartContext"; // Cart setup
 import CartPage from "./Page/CartPage";
 import CheckoutPage from "./Page/CheckoutPage";
 import SuccessPage from "./Page/SuccessPage";
-import Footer from "./components/Footer";
+import Contact from "./Page/Contact";
 export default function App() {
   return (
     <CartProvider>
@@ -22,6 +22,7 @@ export default function App() {
           <Route path="/cart" element={<CartPage />} />
           <Route path="/checkout" element={<CheckoutPage />} />
 <Route path="/success" element={<SuccessPage />} />
+<Route path="/contact" element={<Contact />} />
         </Routes>
       </Router>
     </CartProvider>

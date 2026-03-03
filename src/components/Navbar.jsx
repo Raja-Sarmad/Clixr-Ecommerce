@@ -60,8 +60,6 @@ const Navbar = () => {
 
           {/* LEFT */}
           <div className="flex items-center gap-4 sm:gap-8 lg:gap-20">
-
-            {/* LOGO → HOME */}
             <Link to="/#home" onClick={closeMenu}>
               <img
                 src="/Gallery/artlogo.png"
@@ -72,17 +70,9 @@ const Navbar = () => {
               />
             </Link>
 
-            {/* Desktop links */}
             <div className="hidden lg:flex items-center gap-10 xl:gap-14">
-
-              {/* ✅ HOME ADDED */}
-              <Link to="/#home" className={[linkBase, linkColor].join(" ")}>
-                Home
-              </Link>
-
-              <Link to="/paintings" className={[linkBase, linkColor].join(" ")}>
-                Paintings
-              </Link>
+              <Link to="/" className={[linkBase, linkColor].join(" ")}>Home</Link>
+              <Link to="/paintings" className={[linkBase, linkColor].join(" ")}>Paintings</Link>
               <span className={[linkBase, linkColor].join(" ")}>About</span>
               <span className={[linkBase, linkColor].join(" ")}>Pricing</span>
               <span className={[linkBase, linkColor].join(" ")}>FAQ</span>
@@ -91,49 +81,31 @@ const Navbar = () => {
 
           {/* RIGHT */}
           <div className="flex items-center gap-3 sm:gap-4">
-
-            {/* Desktop right */}
             <div className="hidden sm:flex items-center gap-3 sm:gap-4">
-
-              {/* Cart Icon */}
-              <Link
-                to="/cart"
-                className={[
-                  "relative cursor-pointer transition-transform duration-300 hover:scale-110",
-                  scrolled ? "drop-shadow-[0_4px_20px_rgba(0,0,0,0.85)]" : "",
-                ].join(" ")}
-                aria-label="Open cart"
-              >
+              <Link to="/cart" className={[
+                "relative cursor-pointer transition-transform duration-300 hover:scale-110",
+                scrolled ? "drop-shadow-[0_4px_20px_rgba(0,0,0,0.85)]" : "",
+              ].join(" ")}>
                 <BiShoppingBag size={28} className="text-white" />
                 <span className="absolute -bottom-1 -right-1 bg-white text-black text-[11px] font-bold h-[18px] w-[18px] rounded-full flex items-center justify-center shadow-md">
                   {cartCount || 0}
                 </span>
               </Link>
 
-              {/* Contact Button */}
-              <button className="relative rounded-full p-[1px] transition-all duration-300 hover:scale-[1.05] group">
+              {/* ✅ Desktop Contact Link */}
+              <Link to="/contact" className="relative rounded-full p-[1px] transition-all duration-300 hover:scale-[1.05] group inline-block">
                 <span className="absolute inset-0 rounded-full blur-[10px] opacity-60 bg-gradient-to-r from-[#0b6472] to-[#022227]" />
                 <span className="relative inline-flex items-center justify-center rounded-full px-5 md:px-7 py-[12px] md:py-[16px] border border-white/20 bg-gradient-to-br from-[#0b6472] to-[#022227] shadow-[0_0_25px_rgba(11,100,114,0.5)]">
                   <span className="text-white font-bold text-[14px] md:text-[16px] tracking-wider uppercase">
                     Contact Us
                   </span>
                 </span>
-              </button>
+              </Link>
             </div>
 
-            {/* Mobile right */}
+            {/* Mobile menu button */}
             <div className="flex sm:hidden items-center gap-3">
-              <Link to="/cart" className="relative text-white/90 hover:text-white transition active:scale-95">
-                <BiShoppingBag size={26} className="text-white" />
-                <span className="absolute -bottom-1 -right-1 bg-white text-black text-[10px] font-bold h-[16px] w-[16px] rounded-full flex items-center justify-center shadow-md">
-                  {cartCount || 0}
-                </span>
-              </Link>
-
-              <button
-                onClick={() => setMenuOpen(true)}
-                className="text-white/90 hover:text-white transition active:scale-95"
-              >
+              <button onClick={() => setMenuOpen(true)} className="text-white/90">
                 <HiMenuAlt3 size={28} />
               </button>
             </div>
@@ -142,68 +114,18 @@ const Navbar = () => {
       </div>
 
       {/* Mobile Menu */}
-      <div
-        className={[
-          "fixed inset-0 z-[60] lg:hidden transition-all duration-300",
-          menuOpen ? "pointer-events-auto opacity-100" : "pointer-events-none opacity-0",
-        ].join(" ")}
-      >
-        <div
-          className="absolute inset-0 bg-black/70 backdrop-blur-sm"
-          onClick={closeMenu}
-        />
-
-        <div
-          className={[
-            "absolute right-0 top-0 h-full w-[86%] max-w-[360px] bg-[#0b0b0b] border-l border-white/10",
-            "transition-transform duration-300",
-            menuOpen ? "translate-x-0" : "translate-x-full",
-          ].join(" ")}
-        >
-          <div className="px-5 pt-5 pb-4 flex items-center justify-between">
-
-            {/* LOGO MOBILE → HOME */}
-            <Link to="/#home" onClick={closeMenu}>
-              <img
-                src="/Gallery/artlogo.png"
-                alt="Art Logo"
-                className="h-[50px] w-auto object-contain"
-              />
-            </Link>
-
-            <button onClick={closeMenu} className="text-white/80 hover:text-white transition active:scale-95">
-              <IoClose size={28} />
-            </button>
+      <div className={["fixed inset-0 z-[60] lg:hidden transition-all", menuOpen ? "opacity-100" : "pointer-events-none opacity-0"].join(" ")}>
+        <div className="absolute inset-0 bg-black/70 backdrop-blur-sm" onClick={closeMenu} />
+        <div className={["absolute right-0 top-0 h-full w-[80%] bg-[#0b0b0b] transition-transform", menuOpen ? "translate-x-0" : "translate-x-full"].join(" ")}>
+          <div className="p-5 flex justify-between">
+            <img src="/Gallery/artlogo.png" alt="Logo" className="h-10 w-auto" />
+            <button onClick={closeMenu} className="text-white"><IoClose size={28} /></button>
           </div>
-
-          <div className="px-5 py-3 flex flex-col gap-3">
-
-            {/* ✅ HOME ADDED */}
-            <Link
-              to="/#home"
-              onClick={closeMenu}
-              className="text-white/85 hover:text-white text-[18px] font-medium py-3 border-b border-white/10"
-            >
-              Home
-            </Link>
-
-            <Link
-              to="/paintings"
-              onClick={closeMenu}
-              className="text-white/85 hover:text-white text-[18px] font-medium py-3 border-b border-white/10"
-            >
-              Paintings
-            </Link>
-
-            <span className="text-white/85 text-[18px] font-medium py-3 border-b border-white/10">
-              About
-            </span>
-            <span className="text-white/85 text-[18px] font-medium py-3 border-b border-white/10">
-              Pricing
-            </span>
-            <span className="text-white/85 text-[18px] font-medium py-3 border-b border-white/10">
-              FAQ
-            </span>
+          <div className="px-5 flex flex-col gap-4 mt-10">
+            <Link to="/" onClick={closeMenu} className="text-white text-xl">Home</Link>
+            <Link to="/paintings" onClick={closeMenu} className="text-white text-xl">Paintings</Link>
+            {/* ✅ Mobile Contact Link */}
+            <Link to="/contact" onClick={closeMenu} className="text-[#0b6472] text-xl font-bold">Contact Us</Link>
           </div>
         </div>
       </div>
