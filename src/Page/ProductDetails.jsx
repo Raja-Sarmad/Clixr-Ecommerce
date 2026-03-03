@@ -10,6 +10,7 @@ import {
   FaCheck,
 } from "react-icons/fa";
 import { useCart } from "../context/CartContext";
+const apiUrl = import.meta.env.VITE_API_URL;
 
 /* ─── tiny helpers ─── */
 const Char = ({ char, delay }) => (
@@ -63,7 +64,7 @@ export default function ProductDetails() {
   useEffect(() => {
     const fetchProduct = async () => {
       try {
-        const res = await axios.get(`http://localhost:4080/api/art/${id}`);
+        const res = await axios.get(`${apiUrl}/api/art/${id}`);
         setProduct(res.data?.data || res.data);
       } catch (err) {
         console.error("❌ Error:", err);

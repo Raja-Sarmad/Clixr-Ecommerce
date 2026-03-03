@@ -4,6 +4,8 @@ import { motion } from "framer-motion";
 import { FaDatabase } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
+const apiUrl = import.meta.env.VITE_API_URL
+
 const ProductsPage = () => {
   const [paintings, setPaintings] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -13,7 +15,7 @@ const ProductsPage = () => {
     const fetchPaintings = async () => {
       console.log("📡 Connecting to Backend...");
       try {
-        const res = await axios.get("http://localhost:4080/api/art");
+        const res = await axios.get(`${apiUrl}/api/art`);
         console.log("✅ Backend Response:", res.data);
 
         const arts = Array.isArray(res.data?.data)
