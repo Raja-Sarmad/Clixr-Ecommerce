@@ -56,7 +56,7 @@ const Audience = () => {
 
         {/* Text Section */}
         <div className="mt-12 relative text-center">
-          <h1 className="text-white font-semibold tracking-tight text-[50px] md:text-[100px] leading-tight">
+          <h1 className="text-white font-semibold tracking-tight text-[40px] md:text-[90px] leading-tight">
             <span className="relative inline-block">
               Wow
               {/* UPDATED: Green Arc Underline changed to Blue/Teal (#0b6472) */}

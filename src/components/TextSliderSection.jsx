@@ -3,51 +3,55 @@ import React from "react";
 const TextSliderSection = () => {
   return (
     <div className="bg-[#ffffff] py-6 overflow-hidden">
-      <div className="relative whitespace-nowrap overflow-hidden">
+      <div className="relative overflow-hidden">
 
-        {/* Slider Track */}
-        <div className="slider-track flex gap-12 text-[90px] font-medium">
+        <div className="slider flex text-[90px] font-medium">
 
-          {/* Original content */}
-          <div className="flex gap-10">
-            <span className="text-black">Awesome</span>
+          {/* Group 1 */}
+          <div className="slide flex gap-10">
+            <span className="text-black">Acrylic Paintings</span>
             <span className="text-gray-400">•</span>
-            <span className="text-gray-400">Amazing</span>
+            <span className="text-gray-400">Watercolor Art</span>
+            <span className="text-gray-400">•</span>
+            <span className="text-gray-400">Oil Paint Masterpieces</span>
+            <span className="text-gray-400">•</span>
+            <span className="text-gray-400">Canvas Artwork</span>
             <span className="text-gray-400">•</span>
           </div>
 
-          {/* Duplicate for seamless scroll */}
-          <div className="flex gap-10">
-            <span className="text-black">Awesome</span>
+          {/* Group 2 (duplicate for seamless loop) */}
+          <div className="slide flex gap-10">
+            <span className="text-black">Acrylic Paintings</span>
             <span className="text-gray-400">•</span>
-            <span className="text-gray-400">Amazing</span>
+            <span className="text-gray-400">Watercolor Art</span>
+            <span className="text-gray-400">•</span>
+            <span className="text-gray-400">Oil Paint Masterpieces</span>
+            <span className="text-gray-400">•</span>
+            <span className="text-gray-400">Canvas Artwork</span>
             <span className="text-gray-400">•</span>
           </div>
 
         </div>
       </div>
 
-      {/* Smooth Infinite Animation */}
       <style>
         {`
-          .slider-track {
-            display: inline-flex;
-            animation: marquee 6s linear infinite; /* Fast 6s scroll */
-          }
+        .slider{
+          width: max-content;
+          display:flex;
+          animation: scroll 30s linear infinite;
+        }
 
-          @keyframes marquee {
-            0% {
-              transform: translateX(0);
-            }
-            100% {
-              transform: translateX(-50%); /* Scroll exactly half the track */
-            }
-          }
+        .slide{
+          display:flex;
+          gap:40px;
+          padding-right:40px;
+        }
 
-          /* Thinner text */
-          .slider-track span {
-            font-weight: 500; /* Medium instead of semibold */
-          }
+        @keyframes scroll{
+          0%{ transform: translateX(0); }
+          100%{ transform: translateX(-50%); }
+        }
         `}
       </style>
     </div>

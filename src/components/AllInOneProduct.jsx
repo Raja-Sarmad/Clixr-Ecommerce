@@ -60,10 +60,10 @@ const AllInOneProduct = () => {
       >
         {/* TEXT CONTENT */}
         <div className="text-center z-30 mb-12 px-4">
-          <h1 className="text-6xl md:text-[110px] font-bold text-white tracking-tighter leading-tight">
+          <h1 className="text-6xl md:text-[110px] font-semibold text-white tracking-tighter leading-tight">
             All In One
           </h1>
-          <h1 className="text-6xl md:text-[110px] font-bold text-[#555555] tracking-tighter leading-[0.85]">
+          <h1 className="text-6xl md:text-[110px] font-semibold text-[#555555] tracking-tighter leading-[0.85]">
             Product
           </h1>
 

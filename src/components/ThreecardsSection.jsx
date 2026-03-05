@@ -1,4 +1,6 @@
+// src/components/ThreecardsSection.jsx
 import React, { useRef, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 const ThreecardsSection = () => {
   const leftImageRef = useRef(null);
@@ -34,7 +36,7 @@ const ThreecardsSection = () => {
 
           // RIGHT IMAGE
           if (rightImageRef.current) {
-            const moveY = isMobile ? (scrollProgress * 60 - 30) : (-scrollProgress * 80 + 40);
+            const moveY = isMobile ? scrollProgress * 60 - 30 : -scrollProgress * 80 + 40;
             const rotate = isMobile ? 10 - scrollProgress * 10 : 15 - scrollProgress * 20;
             rightImageRef.current.style.transform = `translateY(${moveY}px) rotate(${rotate}deg)`;
           }
@@ -68,79 +70,64 @@ const ThreecardsSection = () => {
       id="three-cards-section"
       className="bg-black min-h-screen w-full flex flex-col items-center justify-start pt-16 md:pt-28 px-4 md:px-6 overflow-hidden"
     >
-      {/* Container for Top Images (Side by side on mobile) */}
+      {/* Top Images */}
       <div className="w-full max-w-7xl flex flex-row items-start justify-between relative px-2 md:px-10">
-        
-        {/* Left Image */}
         <div
           ref={leftImageRef}
           className="w-40 h-40 sm:w-48 sm:h-48 md:w-72 md:h-72 rounded-[35px] md:rounded-[55px] overflow-hidden border border-white/5 shadow-2xl will-change-transform -translate-x-12 sm:-translate-x-0"
           style={{ transform: "rotate(-12deg)" }}
         >
-          <img
-            src="/Gallery/image28.jpeg"
-            alt="left"
-            className="w-full h-full object-cover"
-          />
+          <img src="/Gallery/image28.jpeg" alt="left" className="w-full h-full object-cover" />
         </div>
 
-        {/* Right Image (Desktop par side mein, mobile par top-right) */}
         <div
           ref={rightImageRef}
           className="w-40 h-40 sm:w-48 sm:h-48 md:w-72 md:h-72 rounded-[35px] md:rounded-[55px] overflow-hidden border border-white/5 shadow-2xl will-change-transform translate-x-12 sm:translate-x-0"
           style={{ transform: "rotate(12deg)" }}
         >
-          <img
-            src="/Gallery/image32.jpeg"
-            alt="right"
-            className="w-full h-full object-cover"
-          />
+          <img src="/Gallery/image32.jpeg" alt="right" className="w-full h-full object-cover" />
         </div>
       </div>
 
-      {/* Text Section (Mobile par Images ke niche aayega) */}
-      <div
-        ref={textRef}
-        className="flex flex-col items-center text-center mt-10 md:-mt-20 z-20"
-      >
-        <h1 className="text-white text-5xl sm:text-6xl md:text-9xl font-bold leading-tight md:leading-none tracking-tighter">
+      {/* Text Section */}
+      <div ref={textRef} className="flex flex-col items-center text-center mt-10 md:-mt-20 z-20">
+        <h1 className="text-white text-5xl sm:text-6xl md:text-8xl font-semibold leading-tight md:leading-none tracking-tighter">
           Real
         </h1>
-        <h1 className="text-[#555] text-5xl sm:text-6xl md:text-9xl font-bold leading-tight md:leading-none tracking-tighter">
+        <h1 className="text-[#555] text-5xl sm:text-6xl md:text-8xl font-semibold leading-tight md:leading-none tracking-tighter">
           Potential
         </h1>
 
+        {/* Button with Link */}
         <div className="mt-8 md:mt-12 flex items-center gap-4 group cursor-pointer">
-          <span className="text-white text-base md:text-lg font-medium">Get Clixr</span>
-          <div className="w-12 h-12 md:w-16 md:h-16 rounded-full border border-[#0b6472]/40 flex items-center justify-center bg-gradient-to-br from-[#0b6472]/30 to-transparent group-hover:scale-110 transition-all duration-300 shadow-lg shadow-[#0b6472]/20 group-hover:shadow-[#0b6472]/50">
-  <svg
-    className="w-5 h-5 md:w-7 md:h-7 text-white transition-transform group-hover:translate-x-1"
-    fill="none"
-    stroke="currentColor"
-    viewBox="0 0 24 24"
-  >
-    <path 
-      strokeLinecap="round" 
-      strokeLinejoin="round" 
-      strokeWidth={2.5} 
-      d="M14 5l7 7m0 0l-7 7m7-7H3" 
-    />
-  </svg>
-</div>
+          <Link to="/paintings" className="flex items-center gap-2">
+            <span className="text-white text-base md:text-lg font-medium">View Gallery</span>
+            <div className="w-12 h-12 md:w-16 md:h-16 rounded-full border border-[#0b6472]/40 flex items-center justify-center bg-gradient-to-br from-[#0b6472]/30 to-transparent group-hover:scale-110 transition-all duration-300 shadow-lg shadow-[#0b6472]/20 group-hover:shadow-[#0b6472]/50">
+              <svg
+                className="w-5 h-5 md:w-7 md:h-7 text-white transition-transform group-hover:translate-x-1"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path 
+                  strokeLinecap="round" 
+                  strokeLinejoin="round" 
+                  strokeWidth={2.5} 
+                  d="M14 5l7 7m0 0l-7 7m7-7H3" 
+                />
+              </svg>
+            </div>
+          </Link>
         </div>
       </div>
 
-      {/* Bottom Image (Sabse niche) */}
+      {/* Bottom Image */}
       <div className="mt-12 md:mt-24 relative z-10 pb-20">
         <div
           ref={centerImageRef}
           className="w-60 h-60 sm:w-72 sm:h-80 md:w-[400px] md:h-[400px] rounded-[40px] md:rounded-[60px] overflow-hidden border border-white/5 shadow-[0_0_50px_rgba(0,0,0,0.8)] will-change-transform"
         >
-          <img
-            src="/Gallery/image35.jpeg"
-            alt="center"
-            className="w-full h-full object-cover"
-          />
+          <img src="/Gallery/image35.jpeg" alt="center" className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent pointer-events-none" />
         </div>
       </div>

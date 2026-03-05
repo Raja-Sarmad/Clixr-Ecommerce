@@ -69,7 +69,7 @@ const HappilyCustomer = () => {
           
           {/* +1M */}
           <div className="relative inline-block">
-            <h1 className="text-white text-[85px] md:text-[130px] font-black leading-none tracking-[-4px] md:tracking-[-8px]">
+            <h1 className="text-white text-[75px] md:text-[110px] font-bold leading-none tracking-[-4px] md:tracking-[-8px]">
               +1M
             </h1>
 
@@ -105,7 +105,7 @@ const HappilyCustomer = () => {
 
           {/* Happy Customers */}
           <div className="mt-10">
-            <h2 className="text-[#4a4a4a] text-[65px] md:text-[100px] font-bold leading-[0.85] tracking-tighter">
+            <h2 className="text-[#4a4a4a] text-[55px] md:text-[90px] font-semibold leading-[0.85] tracking-tighter">
               Happy<br />Customers
             </h2>
           </div>

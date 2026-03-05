@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
@@ -8,13 +9,12 @@ const Footer = () => {
         
         {/* Left Section: Links */}
         <div className="flex flex-row gap-8 md:gap-14 text-left mb-8 md:mb-0">
-          {/* Socails */}
+          {/* Socials */}
           <div className="flex flex-col gap-1.5">
-            <h4 className="text-white font-bold text-[13px] mb-2 uppercase tracking-[0.15em]">Socails</h4>
-            {/* Hover color changed to #8c001d */}
+            <h4 className="text-white font-bold text-[13px] mb-2 uppercase tracking-[0.15em]">Socials</h4>
             <a href="#" className="text-gray-400 hover:text-[#8c001d] transition-all duration-300 text-xs font-medium">Twitter</a>
             <a href="#" className="text-gray-400 hover:text-[#8c001d] transition-all duration-300 text-xs font-medium">Facebook</a>
-            <a href="#" className="text-gray-400 hover:text-[#8c001d] transition-all duration-300 text-xs font-medium">Instagtam</a>
+            <a href="#" className="text-gray-400 hover:text-[#8c001d] transition-all duration-300 text-xs font-medium">Instagram</a>
           </div>
 
           {/* Contact */}
@@ -22,7 +22,7 @@ const Footer = () => {
             <h4 className="text-white font-bold text-[13px] mb-2 uppercase tracking-[0.15em]">Contact</h4>
             <a href="#" className="text-gray-400 hover:text-[#8c001d] transition-all duration-300 text-xs font-medium">Address</a>
             <a href="#" className="text-gray-400 hover:text-[#8c001d] transition-all duration-300 text-xs font-medium">Email</a>
-            <a href="#" className="text-gray-400 hover:text-[#8c001d] transition-all duration-300 text-xs font-medium">+xxxxxxxxx</a>
+            <a href="#" className="text-gray-400 hover:text-[#8c001d] transition-all duration-300 text-xs font-medium">+XXXXXXXXX</a>
           </div>
 
           {/* Links */}
@@ -36,11 +36,14 @@ const Footer = () => {
 
         {/* Middle Section: The Circle Button */}
         <div className="relative mb-8 md:mb-0">
-          <div className="w-36 h-36 md:w-40 md:h-40 rounded-full bg-gradient-to-br from-[#0b6472] via-[#084d57] to-black flex items-center justify-center border border-white/20 shadow-[0_0_40px_rgba(11,100,114,0.3)] hover:scale-105 hover:border-[#8c001d]/50 transition-transform duration-500 cursor-pointer group">
+          <Link
+            to="/paintings"
+            className="w-36 h-36 md:w-40 md:h-40 rounded-full bg-gradient-to-br from-[#0b6472] via-[#084d57] to-black flex items-center justify-center border border-white/20 shadow-[0_0_40px_rgba(11,100,114,0.3)] hover:scale-105 hover:border-[#8c001d]/50 transition-transform duration-500 cursor-pointer group"
+          >
             <span className="text-white text-xl md:text-2xl font-black tracking-tighter group-hover:tracking-normal transition-all duration-500">
-              Get Clixr
+              View Gallery
             </span>
-          </div>
+          </Link>
         </div>
 
         {/* Right Section: Credits */}
