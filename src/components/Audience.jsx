@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from "react";
+import { Link } from "react-router-dom"; // ✅ Link Import Kiya
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -48,7 +49,7 @@ const Audience = () => {
         {/* Avatar Section */}
         <div className="w-44 h-44 md:w-64 md:h-64 rounded-full overflow-hidden border-[6px] border-white/5 shadow-2xl transition-transform hover:scale-105 duration-500">
           <img
-            src="/Gallery/image2.jpeg"
+            src="/Gallery/image39.png"
             alt="Avatar"
             className="w-full h-full object-cover"
           />
@@ -59,7 +60,7 @@ const Audience = () => {
           <h1 className="text-white font-semibold tracking-tight text-[40px] md:text-[90px] leading-tight">
             <span className="relative inline-block">
               Wow
-              {/* UPDATED: Green Arc Underline changed to Blue/Teal (#0b6472) */}
+              {/* Green Arc Underline */}
               <svg className="absolute -bottom-2 left-0 w-full h-4 md:h-8" viewBox="0 0 100 20">
                 <path 
                   d="M5 15C30 5 70 5 95 15" 
@@ -73,10 +74,12 @@ const Audience = () => {
           </h1>
         </div>
 
-        {/* --- PREMIUM BUTTON (UPDATED TO BLUE/TEAL THEME) --- */}
-        <button className="mt-16 group relative w-24 h-24 md:w-32 md:h-32 rounded-full flex items-center justify-center transition-all duration-500 hover:scale-110 overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.8)]">
-          
-          {/* UPDATED Radial Gradient Match: Cyan to Dark Teal to Black */}
+        {/* ✅ UPDATED: BUTTON CHANGED TO LINK WITH ARROW */}
+        <Link 
+          to="/paintings" 
+          className="mt-16 group relative w-24 h-24 md:w-32 md:h-32 rounded-full flex items-center justify-center transition-all duration-500 hover:scale-110 overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.8)]"
+        >
+          {/* Radial Gradient Background */}
           <div 
             className="absolute inset-0 rounded-full border border-white/10 transition-all duration-500 group-hover:brightness-125"
             style={{
@@ -84,7 +87,7 @@ const Audience = () => {
             }}
           ></div>
 
-          {/* Arrow SVG: Smooth transition to 45deg on hover */}
+          {/* Arrow SVG: Moves up-right (45deg) on hover */}
           <svg 
             className="relative z-10 w-9 h-9 md:w-14 md:h-14 text-white transition-all duration-500 transform group-hover:-rotate-45 group-hover:-translate-y-1 group-hover:translate-x-1" 
             viewBox="0 0 24 24" 
@@ -98,9 +101,9 @@ const Audience = () => {
             <polyline points="12 5 19 12 12 19"></polyline>
           </svg>
 
-          {/* Subtle Outer Glow on Hover (Updated to Teal) */}
+          {/* Subtle Outer Teal Glow on Hover */}
           <div className="absolute inset-0 bg-[#0b6472]/20 opacity-0 group-hover:opacity-100 blur-2xl transition-opacity"></div>
-        </button>
+        </Link>
 
       </div>
     </section>
