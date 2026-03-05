@@ -39,7 +39,7 @@ export default function Hero() {
         <p className="text-white text-[18px] md:text-[22px] font-medium mb-4">
           By{" "}
           <span className="relative inline-block px-1">
-            Art Studio
+            Ali Mehdi
             <span 
               className="absolute left-0 -bottom-[2px] w-full h-[8px] opacity-90"
               style={{ 
