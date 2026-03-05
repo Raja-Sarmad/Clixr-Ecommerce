@@ -72,7 +72,7 @@ const Navbar = () => {
 
             <div className="hidden lg:flex items-center gap-10 xl:gap-14">
               <Link to="/" className={[linkBase, linkColor].join(" ")}>Home</Link>
-              <Link to="/paintings" className={[linkBase, linkColor].join(" ")}>Paintings</Link>
+              <Link to="/paintings" className={[linkBase, linkColor].join(" ")}>Gallery</Link>
               <span className={[linkBase, linkColor].join(" ")}>About</span>
               <span className={[linkBase, linkColor].join(" ")}>Pricing</span>
               <span className={[linkBase, linkColor].join(" ")}>FAQ</span>

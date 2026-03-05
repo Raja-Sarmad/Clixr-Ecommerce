@@ -41,7 +41,7 @@ const ImageSlider = () => {
       >
         <h1 className="text-gray-400 text-4xl md:text-5xl font-medium tracking-tight leading-tight">
           Unlock your <br />
-          <span className="text-white font-bold">super power</span>
+          <span className="text-white font-bold">Real Potential</span>
         </h1>
       </motion.div>
 

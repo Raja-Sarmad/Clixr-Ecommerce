@@ -2,6 +2,7 @@
 import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { Link } from "react-router-dom";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -76,22 +77,24 @@ const ShapingIndustrySection = () => {
       {/* --- CENTER CONTENT --- */}
       <div className="z-30 text-center flex flex-col items-center gap-6 px-4 my-10 md:my-24">
         <h2 className="text-[52px] md:text-[75px] font-bold text-white max-w-2xl leading-[1.05] md:leading-[1.2] tracking-tighter">
-          We’re <br /> Shaping <br /> Industry
+          Inspiring <br /> Contemporary <br /> Art
         </h2>
+        <p className="text-gray-400 text-lg md:text-xl max-w-xl leading-relaxed">
+          Discover unique artworks that celebrate creativity and expression, from traditional to modern styles.
+        </p>
         
         <div className="relative group cursor-pointer">
-          {/* Blue/Teal Ambient Glow behind button */}
           <div className="absolute inset-0 bg-[#0b6472] blur-[80px] opacity-20 group-hover:opacity-40 transition-opacity duration-500"></div>
-          
-          {/* UPDATED BUTTON: Matched with Hero Button */}
-          <button 
-            className="relative z-20 w-[110px] h-[110px] md:w-[140px] md:h-[140px] rounded-full font-bold text-white text-[15px] md:text-[18px] 
-            bg-gradient-to-br from-[#0b6472] to-[#022227] border-2 border-white/20 flex items-center justify-center 
-            shadow-[0_0_40px_rgba(11,100,114,0.7)] transition-transform duration-500 hover:scale-105"
-            style={{ animation: "float 6s ease-in-out infinite" }}
-          >
-            <span className="relative z-10">Get Clixr</span>
-          </button>
+          <Link to="/paintings">
+            <button 
+              className="relative z-20 w-[110px] h-[110px] md:w-[140px] md:h-[140px] rounded-full font-bold text-white text-[15px] md:text-[18px] 
+              bg-gradient-to-br from-[#0b6472] to-[#022227] border-2 border-white/20 flex items-center justify-center 
+              shadow-[0_0_40px_rgba(11,100,114,0.7)] transition-transform duration-500 hover:scale-105"
+              style={{ animation: "float 6s ease-in-out infinite" }}
+            >
+              <span className="relative z-10">View Gallery</span>
+            </button>
+          </Link>
         </div>
       </div>
 
