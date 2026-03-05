@@ -4,7 +4,7 @@ import { useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 
 export default function Hero() {
-  const words = ["Acrylic Paintings", "Watercolor Art 🎨", "Oil Paint Masterpieces", "Creative Expressions"];
+  const words = ["Acrylic Paintings", "Watercolor Art 🎨", "Oil Paint", "Creative Expressions"];
   const [index, setIndex] = useState(0);
   const [visible, setVisible] = useState(true);
 
