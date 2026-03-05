@@ -46,15 +46,16 @@ const Footer = () => {
         {/* Right Section: Credits */}
         <div className="text-center md:text-right">
           <p className="text-white text-base md:text-[17px] font-bold tracking-tight">
-            Design & Development by <span className="relative inline-block group cursor-pointer">
+            Design & Developed by <span className="relative inline-block group cursor-pointer">
               {/* Hover text changed to #8c001d */}
-              <span className="text-white group-hover:text-[#8c001d] transition-colors duration-300">Deveb</span>
+              <span className="text-white group-hover:text-[#8c001d] transition-colors duration-300">Techxudo</span>
               {/* Line color and glow changed to #8c001d */}
               <span className="absolute bottom-0 left-0 w-full h-[2px] bg-[#8c001d] shadow-[0_0_8px_#8c001d]"></span>
             </span>
           </p>
+          
           <p className="text-gray-500 text-[10px] mt-1.5 uppercase tracking-[0.3em] font-medium">
-            Powered by Webflow
+            Powered By Creativity
           </p>
         </div>
 

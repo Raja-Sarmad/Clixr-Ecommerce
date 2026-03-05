@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { FaDatabase } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
-const apiUrl = import.meta.env.VITE_API_URL
+const apiUrl = import.meta.env.VITE_API_URL;
 
 const ProductsPage = () => {
   const [paintings, setPaintings] = useState([]);
@@ -18,13 +18,18 @@ const ProductsPage = () => {
         const res = await axios.get(`${apiUrl}/api/art`);
         console.log("✅ Backend Response:", res.data);
 
-        const arts = Array.isArray(res.data?.data)
+        let arts = Array.isArray(res.data?.data)
           ? res.data.data
           : Array.isArray(res.data)
           ? res.data
           : [];
 
-        setPaintings(arts);
+        // ✅ Sorting Logic: Art Work titles ko numerical order mein lane ke liye
+        const sortedArts = arts.sort((a, b) => 
+          a.title.localeCompare(b.title, undefined, { numeric: true, sensitivity: 'base' })
+        );
+
+        setPaintings(sortedArts);
         setError(null);
       } catch (err) {
         console.error("❌ API Error:", err.message);
@@ -49,12 +54,13 @@ const ProductsPage = () => {
     );
 
   return (
-    <div className="min-h-screen bg-[#050505] text-white pt-28 pb-16 px-5">
+    /* ✅ Navbar overlap fix ke liye pt-36 md:pt-48 kiya gaya hai */
+    <div className="min-h-screen bg-[#050505] text-white pt-36 md:pt-48 pb-16 px-5">
       <div className="max-w-7xl mx-auto">
 
         {/* Heading */}
         <div className="mb-14 text-center">
-          <h1 className="text-5xl md:text-7xl font-black tracking-tighter uppercase">
+          <h1 className="text-5xl md:text-7xl font-black tracking-tighter uppercase leading-tight">
             Art <span className="text-[#0b6472]">Vault</span>
           </h1>
           <p className="text-gray-500 mt-3 font-mono tracking-widest text-[11px]">
@@ -77,7 +83,6 @@ const ProductsPage = () => {
                 <div className="aspect-[3/4] overflow-hidden relative bg-[#111]">
                   <img
                     src={art.imageUrl}
-                    /* Grayscale classes removed here to show real colors */
                     className="w-full h-full object-cover object-center transition-transform duration-600 group-hover:scale-105"
                     alt={art.title}
                   />
