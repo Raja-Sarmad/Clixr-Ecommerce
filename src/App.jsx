@@ -12,6 +12,7 @@ import Contact from "./Page/Contact";
 
 // ✅ Naya import for Reviews page
 import Reviews from "./components/Reviews";
+import CustomizePage from "./Page/CustomizePage";
 
 export default function App() {
   return (
@@ -29,6 +30,7 @@ export default function App() {
 
           {/* ✅ Naya route for Reviews */}
           <Route path="/reviews" element={<Reviews />} />
+          <Route path="/CustomizePage" element={<CustomizePage />} />
         </Routes>
       </Router>
     </CartProvider>

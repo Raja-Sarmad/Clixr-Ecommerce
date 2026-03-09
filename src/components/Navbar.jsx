@@ -89,9 +89,12 @@ const Navbar = () => {
                 About
               </span>
 
-              <span className={[linkBase, linkColor].join(" ")}>
-                Pricing
-              </span>
+              <Link
+                to="/CustomizePage"
+                className={[linkBase, linkColor].join(" ")}
+              >
+                Customize
+              </Link>
 
               <span className={[linkBase, linkColor].join(" ")}>
                 FAQ

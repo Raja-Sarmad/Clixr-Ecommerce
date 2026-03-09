@@ -88,7 +88,7 @@ const ShapingIndustrySection = () => {
         <div className="relative group cursor-pointer">
           <div className="absolute inset-0 bg-[#0b6472] blur-[80px] opacity-20 group-hover:opacity-40 transition-opacity duration-500"></div>
 
-          <Link to="/paintings">
+          <Link to="/CustomizePage">
             <button
               className="relative z-20 w-[110px] h-[110px] md:w-[140px] md:h-[140px] rounded-full font-bold text-white text-[15px] md:text-[18px] 
               bg-gradient-to-br from-[#0b6472] to-[#022227] border-2 border-white/20 flex items-center justify-center 
