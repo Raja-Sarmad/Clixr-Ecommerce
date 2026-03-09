@@ -40,7 +40,7 @@ const AboutSection = () => {
               <span className="text-[#555555]"> expressions </span>
 
               <span className="text-[#555555] leading-14 sm:leading-normal">
-                through vibrant acrylic paints, delicate watercolors, and timeless oil paintings — transforming imagination into meaningful artwork that captures emotion, creativity, and the beauty of every brushstroke.
+                through vibrant acrylic paints, delicate watercolors, and timeless oil paintings transforming imagination into meaningful artwork that captures emotion, creativity, and the beauty of every brushstroke.
               </span>
 
             </p>

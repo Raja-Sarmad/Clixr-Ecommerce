@@ -25,9 +25,9 @@ const ShapingIndustrySection = () => {
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: sectionRef.current,
-          start: "top 300%", 
+          start: "top 300%",
           end: "bottom 20%",
-          scrub: 1.8, 
+          scrub: 1.8,
           invalidateOnRefresh: true,
         },
       });
@@ -77,22 +77,25 @@ const ShapingIndustrySection = () => {
       {/* --- CENTER CONTENT --- */}
       <div className="z-30 text-center flex flex-col items-center gap-6 px-4 my-10 md:my-24">
         <h2 className="text-[42px] md:text-[60px] font-semibold text-white max-w-2xl leading-[1.05] md:leading-[1.2] tracking-tighter">
-          Inspiring <br /> Contemporary <br /> Art
+          Share Your <br /> Creative <br /> Artwork
         </h2>
+
         <p className="text-gray-400 text-sm md:text-base max-w-lg leading-relaxed">
-          Discover unique artworks that celebrate creativity and expression, from traditional to modern styles.
+          We are always looking for passionate artists and unique paintings.
+          If you have original artwork, share it with us and become part of our growing art collection.
         </p>
-        
+
         <div className="relative group cursor-pointer">
           <div className="absolute inset-0 bg-[#0b6472] blur-[80px] opacity-20 group-hover:opacity-40 transition-opacity duration-500"></div>
+
           <Link to="/paintings">
-            <button 
+            <button
               className="relative z-20 w-[110px] h-[110px] md:w-[140px] md:h-[140px] rounded-full font-bold text-white text-[15px] md:text-[18px] 
               bg-gradient-to-br from-[#0b6472] to-[#022227] border-2 border-white/20 flex items-center justify-center 
               shadow-[0_0_40px_rgba(11,100,114,0.7)] transition-transform duration-500 hover:scale-105"
               style={{ animation: "float 6s ease-in-out infinite" }}
             >
-              <span className="relative z-10">View Gallery</span>
+              <span className="relative z-10">Submit Art</span>
             </button>
           </Link>
         </div>
@@ -109,9 +112,9 @@ const ShapingIndustrySection = () => {
       </div>
 
       <style jsx>{`
-        @keyframes float { 
-          0%, 100% { transform: translateY(0px); } 
-          50% { transform: translateY(-10px); } 
+        @keyframes float {
+          0%, 100% { transform: translateY(0px); }
+          50% { transform: translateY(-10px); }
         }
       `}</style>
     </section>

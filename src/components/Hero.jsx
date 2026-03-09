@@ -4,7 +4,7 @@ import { useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 
 export default function Hero() {
-  const words = ["Acrylic Paintings", "Watercolor Art 🎨", "Oil Paint Masterpieces", "Creative Expressions"];
+  const words = ["Acrylic Paintings", "Watercolor Art 🎨", "Oil Paint Masterpieces"];
   const [index, setIndex] = useState(0);
   const [visible, setVisible] = useState(true);
 
@@ -16,8 +16,9 @@ export default function Hero() {
         setVisible(true);
       }, 250);
     }, 2500);
+
     return () => clearInterval(interval);
-  }, []);
+  }, [words.length]);
 
   const logos = useMemo(
     () => [
@@ -85,15 +86,14 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* ✅ Button with Link to /paintings */}
           <Link to="/paintings">
             <button
-              className="relative z-20 w-[110px] h-[110px] md:w-[140px] md:h-[140px] rounded-full font-bold text-white text-[15px] md:text-[18px] 
+              className="relative z-20 w-[110px] h-[110px] md:w-[140px] md:h-[140px] rounded-full font-bold text-white text-[18px] md:text-[22px] 
               bg-gradient-to-br from-[#0b6472] to-[#022227] border-2 border-white/20 flex items-center justify-center 
-              shadow-[0_0_40px_rgba(11,100,114,0.7)]"
+              shadow-[0_0_40px_rgba(11,100,114,0.7)] cursor-pointer"
               style={{ animation: "float 6s ease-in-out infinite" }}
             >
-              View Gallery
+              Get In
             </button>
           </Link>
         </div>
