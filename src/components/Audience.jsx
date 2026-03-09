@@ -57,21 +57,21 @@ const Audience = () => {
 
         {/* Text Section */}
         <div className="mt-12 relative text-center">
-          <h1 className="text-white font-semibold tracking-tight text-[40px] md:text-[90px] leading-tight">
-            <span className="relative inline-block">
-              Wow
-              {/* Green Arc Underline */}
-              <svg className="absolute -bottom-2 left-0 w-full h-4 md:h-8" viewBox="0 0 100 20">
-                <path 
-                  d="M5 15C30 5 70 5 95 15" 
-                  stroke="#0b6472" 
-                  strokeWidth="5" 
-                  strokeLinecap="round" 
-                  fill="none" 
-                />
-              </svg>
-            </span> Your Audience
-          </h1>
+         <h1 className="text-white font-semibold tracking-tight text-[40px] md:text-[90px] leading-tight">
+  <span className="relative inline-block">
+    What
+    {/* Green Arc Underline */}
+    <svg className="absolute -bottom-2 left-0 w-full h-4 md:h-8" viewBox="0 0 100 20">
+      <path 
+        d="M5 15C30 5 70 5 95 15" 
+        stroke="#0b6472" 
+        strokeWidth="5" 
+        strokeLinecap="round" 
+        fill="none" 
+      />
+    </svg>
+  </span> Audience Says
+</h1>
         </div>
 
         {/* ✅ UPDATED: BUTTON CHANGED TO LINK WITH ARROW */}

@@ -34,31 +34,22 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Middle Section: The Circle Button */}
-        <div className="relative mb-8 md:mb-0">
-          <Link
-            to="/paintings"
-            className="w-36 h-36 md:w-40 md:h-40 rounded-full bg-gradient-to-br from-[#0b6472] via-[#084d57] to-black flex items-center justify-center border border-white/20 shadow-[0_0_40px_rgba(11,100,114,0.3)] hover:scale-105 hover:border-[#8c001d]/50 transition-transform duration-500 cursor-pointer group"
-          >
-            <span className="text-white text-xl md:text-2xl font-black tracking-tighter group-hover:tracking-normal transition-all duration-500">
-              View Gallery
-            </span>
-          </Link>
+        {/* Middle Section: Logo instead of button */}
+        <div className="relative mb-8 md:mb-0 flex items-center justify-center">
+          <img
+            src="/Gallery/artlogo.png"
+            alt="Art Logo"
+            className="w-36 h-36 md:w-40 md:h-40 object-contain"
+          />
         </div>
 
-        {/* Right Section: Credits */}
+        {/* Right Section: Developed by only */}
         <div className="text-center md:text-right">
           <p className="text-white text-base md:text-[17px] font-bold tracking-tight">
-            Design & Developed by <span className="relative inline-block group cursor-pointer">
-              {/* Hover text changed to #8c001d */}
+            Developed by <span className="relative inline-block group cursor-pointer">
               <span className="text-white group-hover:text-[#8c001d] transition-colors duration-300">Techxudo</span>
-              {/* Line color and glow changed to #8c001d */}
               <span className="absolute bottom-0 left-0 w-full h-[2px] bg-[#8c001d] shadow-[0_0_8px_#8c001d]"></span>
             </span>
-          </p>
-          
-          <p className="text-gray-500 text-[10px] mt-1.5 uppercase tracking-[0.3em] font-medium">
-            Powered By Creativity
           </p>
         </div>
 

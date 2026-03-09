@@ -48,7 +48,7 @@ const ProductsPage = () => {
       <div className="min-h-screen bg-black flex items-center justify-center flex-col gap-4">
         <div className="w-10 h-10 border-4 border-[#0b6472] border-t-transparent rounded-full animate-spin"></div>
         <p className="text-white font-mono tracking-widest text-xs animate-pulse">
-          CONNECTING TO SERVER...
+          LOADING...
         </p>
       </div>
     );

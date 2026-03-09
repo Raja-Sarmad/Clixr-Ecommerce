@@ -1,5 +1,5 @@
-// src/components/HappilyCustomer.jsx
 import React, { useEffect, useRef, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const HappilyCustomer = () => {
   const leftImages = [
@@ -16,6 +16,7 @@ const HappilyCustomer = () => {
 
   const sectionRef = useRef(null);
   const [p, setP] = useState(0);
+  const navigate = useNavigate(); // 👈 navigation hook
 
   useEffect(() => {
     const update = () => {
@@ -55,11 +56,7 @@ const HappilyCustomer = () => {
               key={i}
               className="w-[140px] h-[140px] md:w-[260px] md:h-[260px] rounded-full overflow-hidden border-[3px] border-white/10 md:-mt-16 first:mt-0 relative bg-zinc-900 shadow-2xl transition-all duration-500 hover:scale-105 hover:z-50 hover:border-[#0b6472]"
             >
-              <img
-                src={img}
-                alt="Customer"
-                className="w-full h-full object-cover"
-              />
+              <img src={img} alt="Customer" className="w-full h-full object-cover" />
             </div>
           ))}
         </div>
@@ -67,10 +64,9 @@ const HappilyCustomer = () => {
         {/* CENTER CONTENT */}
         <div className="text-center z-10 flex flex-col items-center">
           
-          {/* +1M */}
           <div className="relative inline-block">
             <h1 className="text-white text-[75px] md:text-[110px] font-bold leading-none tracking-[-4px] md:tracking-[-8px]">
-              +1M
+              +1K
             </h1>
 
             <div className="mt-3 flex justify-center">
@@ -90,10 +86,7 @@ const HappilyCustomer = () => {
                 <defs>
                   <linearGradient
                     id="red-grad"
-                    x1="0%"
-                    y1="0%"
-                    x2="100%"
-                    y2="0%"
+                    x1="0%" y1="0%" x2="100%" y2="0%"
                   >
                     <stop offset="0%" stopColor="#E63946" />
                     <stop offset="100%" stopColor="#450a0a" />
@@ -103,15 +96,18 @@ const HappilyCustomer = () => {
             </div>
           </div>
 
-          {/* Happy Customers */}
           <div className="mt-10">
             <h2 className="text-[#4a4a4a] text-[55px] md:text-[90px] font-semibold leading-[0.85] tracking-tighter">
               Happy<br />Customers
             </h2>
           </div>
 
-          {/* Read Reviews */}
-          <div style={{ marginTop: "50px", cursor: "pointer" }} className="group">
+          {/* Read Reviews Button */}
+          <div
+            onClick={() => navigate("/reviews")} // 👈 navigate to reviews page
+            style={{ marginTop: "50px", cursor: "pointer" }}
+            className="group"
+          >
             <p
               style={{
                 color: "white",
@@ -141,17 +137,10 @@ const HappilyCustomer = () => {
                 <defs>
                   <linearGradient
                     id="blue-teal-grad"
-                    x1="0%"
-                    y1="0%"
-                    x2="100%"
-                    y2="0%"
+                    x1="0%" y1="0%" x2="100%" y2="0%"
                   >
                     <stop offset="0%" stopColor="#14b8a6" />
-                    <stop
-                      offset="70%"
-                      stopColor="#0b6472"
-                      stopOpacity="0.8"
-                    />
+                    <stop offset="70%" stopColor="#0b6472" stopOpacity="0.8" />
                     <stop offset="100%" stopColor="#022227" />
                   </linearGradient>
                 </defs>
@@ -175,11 +164,7 @@ const HappilyCustomer = () => {
               key={i}
               className="w-[140px] h-[140px] md:w-[260px] md:h-[260px] rounded-full overflow-hidden border-[3px] border-white/10 md:-mt-16 first:mt-0 relative bg-zinc-900 shadow-2xl transition-all duration-500 hover:scale-105 hover:z-50 hover:border-[#0b6472]"
             >
-              <img
-                src={img}
-                alt="Customer"
-                className="w-full h-full object-cover"
-              />
+              <img src={img} alt="Customer" className="w-full h-full object-cover" />
             </div>
           ))}
         </div>

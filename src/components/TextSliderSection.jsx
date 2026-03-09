@@ -13,7 +13,7 @@ const TextSliderSection = () => {
             <span className="text-gray-400">•</span>
             <span className="text-gray-400">Watercolor Art</span>
             <span className="text-gray-400">•</span>
-            <span className="text-gray-400">Oil Paint Masterpieces</span>
+            <span className="text-gray-400">Oil Paint</span>
             <span className="text-gray-400">•</span>
             <span className="text-gray-400">Canvas Artwork</span>
             <span className="text-gray-400">•</span>
@@ -25,7 +25,7 @@ const TextSliderSection = () => {
             <span className="text-gray-400">•</span>
             <span className="text-gray-400">Watercolor Art</span>
             <span className="text-gray-400">•</span>
-            <span className="text-gray-400">Oil Paint Masterpieces</span>
+            <span className="text-gray-400">Oil Paint</span>
             <span className="text-gray-400">•</span>
             <span className="text-gray-400">Canvas Artwork</span>
             <span className="text-gray-400">•</span>

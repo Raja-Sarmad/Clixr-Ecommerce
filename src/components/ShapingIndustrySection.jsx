@@ -77,12 +77,12 @@ const ShapingIndustrySection = () => {
       {/* --- CENTER CONTENT --- */}
       <div className="z-30 text-center flex flex-col items-center gap-6 px-4 my-10 md:my-24">
         <h2 className="text-[42px] md:text-[60px] font-semibold text-white max-w-2xl leading-[1.05] md:leading-[1.2] tracking-tighter">
-          Share Your <br /> Creative <br /> Artwork
+          Request Your <br /> Custom <br /> Artwork
         </h2>
 
         <p className="text-gray-400 text-sm md:text-base max-w-lg leading-relaxed">
-          We are always looking for passionate artists and unique paintings.
-          If you have original artwork, share it with us and become part of our growing art collection.
+          As a valued client, you can specify your preferences, and our talented artists will create a unique piece just for you.
+          Share your vision, select styles, and let us bring your custom artwork to life.
         </p>
 
         <div className="relative group cursor-pointer">
@@ -92,10 +92,10 @@ const ShapingIndustrySection = () => {
             <button
               className="relative z-20 w-[110px] h-[110px] md:w-[140px] md:h-[140px] rounded-full font-bold text-white text-[15px] md:text-[18px] 
               bg-gradient-to-br from-[#0b6472] to-[#022227] border-2 border-white/20 flex items-center justify-center 
-              shadow-[0_0_40px_rgba(11,100,114,0.7)] transition-transform duration-500 hover:scale-105"
+              shadow-[0_0_40px_rgba(11,100,114,0.7)] transition-transform duration-500 hover:scale-105 cursor-pointer"
               style={{ animation: "float 6s ease-in-out infinite" }}
             >
-              <span className="relative z-10">Submit Art</span>
+              <span className="relative z-10">Place Your Request</span>
             </button>
           </Link>
         </div>
