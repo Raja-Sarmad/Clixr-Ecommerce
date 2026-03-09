@@ -211,15 +211,15 @@ const Product = () => {
           <div style={{ marginBottom: '56px' }}>
 
             <div className={`reveal-line line-1`}>
-              <span className={`reveal-text display-font dim ${scrolled ? 'visible' : ''}`}
+              <span className={`reveal-text display-font bright ${scrolled ? 'visible' : ''}`}
                 style={{ fontSize: 'clamp(52px, 10vw, 130px)' }}>
                 Where Colour
               </span>
             </div>
 
             <div className={`reveal-line line-2`}>
-              <span className={`reveal-text display-font mid ${scrolled ? 'visible' : ''}`}
-                style={{ fontSize: 'clamp(52px, 10vw, 130px)', fontStyle: 'italic' }}>
+              <span className={`reveal-text display-font bright ${scrolled ? 'visible' : ''}`}
+                style={{ fontSize: 'clamp(52px, 10vw, 130px)' }}>
                 Finds Its
               </span>
             </div>

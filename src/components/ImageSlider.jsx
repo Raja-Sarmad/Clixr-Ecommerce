@@ -40,8 +40,8 @@ const ImageSlider = () => {
         className="px-10 z-20"
       >
         <h1 className="text-gray-400 text-4xl md:text-5xl font-medium tracking-tight leading-tight">
-          Unlock your <br />
-          <span className="text-white font-bold">Real Potential</span>
+          Build Something<br />
+          <span className="text-white font-bold">Extraordinary</span>
         </h1>
       </motion.div>
 
@@ -71,9 +71,9 @@ const ImageSlider = () => {
         style={{ y: bottomTextY }}
         className="px-10 text-right z-20"
       >
-        <h2 className="text-white text-4xl md:text-6xl font-bold leading-[0.8] tracking-tight">
-          Amazing <br />
-          <span className="text-gray-500 font-medium">& unique</span>
+        <h2 className="text-white text-4xl md:text-6xl font-bold leading-[1.2] tracking-tight">
+          Elegant<br />
+          <span className="text-gray-500 font-medium">& Exceptional</span>
         </h2>
       </motion.div>
 
