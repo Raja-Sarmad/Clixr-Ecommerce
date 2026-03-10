@@ -46,7 +46,7 @@ export default function CartPage() {
           <div className="w-20 h-20 rounded-full border border-white/10 bg-white/[0.03] flex items-center justify-center mx-auto mb-6">
             <FaShoppingBag className="text-[#0b6472]" size={28} />
           </div>
-          <h2 className="text-2xl font-black uppercase tracking-tight mb-2">Your Vault is Empty</h2>
+          <h2 className="text-2xl font-black uppercase tracking-tight mb-2">Your Gallery is Empty</h2>
           <p className="text-gray-500 text-xs uppercase tracking-[0.35em] mb-8">No artworks added yet</p>
           <Link
             to="/paintings"

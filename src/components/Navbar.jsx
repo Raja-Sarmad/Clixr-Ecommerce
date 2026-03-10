@@ -96,9 +96,12 @@ const Navbar = () => {
                 Customize
               </Link>
 
-              <span className={[linkBase, linkColor].join(" ")}>
+              <Link
+                to="/FAQPage"
+                className={[linkBase, linkColor].join(" ")}
+              >
                 FAQ
-              </span>
+              </Link>
             </div>
           </div>
 
