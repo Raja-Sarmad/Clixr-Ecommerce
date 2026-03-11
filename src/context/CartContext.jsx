@@ -1,13 +1,30 @@
-import React, { createContext, useContext, useMemo, useState } from "react";
+import React, { createContext, useContext, useMemo, useState, useEffect } from "react";
 
 const CartContext = createContext(null);
 
 export const CartProvider = ({ children }) => {
+
   // each item: { ...product, qty }
-  const [cart, setCart] = useState([]);
+  const [cart, setCart] = useState(() => {
+    const savedCart = localStorage.getItem("cart");
+    return savedCart ? JSON.parse(savedCart) : [];
+  });
 
   // last placed order (for Success page)
-  const [lastOrder, setLastOrder] = useState(null);
+  const [lastOrder, setLastOrder] = useState(() => {
+    const savedOrder = localStorage.getItem("lastOrder");
+    return savedOrder ? JSON.parse(savedOrder) : null;
+  });
+
+  // ✅ save cart in localStorage
+  useEffect(() => {
+    localStorage.setItem("cart", JSON.stringify(cart));
+  }, [cart]);
+
+  // ✅ save lastOrder in localStorage
+  useEffect(() => {
+    localStorage.setItem("lastOrder", JSON.stringify(lastOrder));
+  }, [lastOrder]);
 
   // ✅ Add to cart (same item again => qty++)
   const addToCart = (product) => {
@@ -71,12 +88,6 @@ export const CartProvider = ({ children }) => {
 
   /**
    * ✅ Place order (front-end only)
-   * payload example:
-   * {
-   *  customer: { name, phone, address, city, ... },
-   *  payment: { method: "cod" | "card" | "bank", status: "requested" },
-   *  totals: { subtotal, shipping, total }
-   * }
    */
   const placeOrder = (payload = {}) => {
     if (!cart.length) return null;
@@ -92,7 +103,7 @@ export const CartProvider = ({ children }) => {
     };
 
     setLastOrder(order);
-    clearCart(); // order placed => empty cart
+    clearCart();
     return order;
   };
 

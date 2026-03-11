@@ -356,7 +356,7 @@ export default function ProductDetails() {
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.97 }}
                 onClick={handleAddToCart}
-                className="relative w-100 h-14 rounded-2xl overflow-hidden font-extrabold uppercase text-[11px] tracking-[0.35em] flex items-center justify-center gap-3"
+                className="relative w-full md:w-[420px] h-14 rounded-2xl overflow-hidden font-extrabold uppercase text-[11px] tracking-[0.35em] flex items-center justify-center gap-3"
               >
                 {/* bg layers */}
                 <motion.span

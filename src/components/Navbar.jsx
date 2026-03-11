@@ -46,12 +46,16 @@ const Navbar = () => {
     : "text-[#8f8f8f]";
 
   return (
-    <nav
-      className={[
-        "fixed top-0 left-0 w-full z-50 transition-all duration-500 ease-out",
-        scrolled ? "bg-transparent" : "bg-black/85 backdrop-blur-md",
-      ].join(" ")}
-    >
+ <nav
+  className={[
+    "fixed top-0 left-0 w-full z-50",
+    menuOpen
+      ? "bg-black"
+      : scrolled
+      ? "bg-transparent"
+      : "bg-black/85 backdrop-blur-md",
+  ].join(" ")}
+>
       {!scrolled && (
         <div className="pointer-events-none absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[200px] bg-[radial-gradient(ellipse_at_center_top,rgba(80,60,180,0.18),transparent_65%)] animate-pulse" />
       )}
