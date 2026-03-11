@@ -85,9 +85,7 @@ const Navbar = () => {
                 Gallery
               </Link>
 
-              <span className={[linkBase, linkColor].join(" ")}>
-                About
-              </span>
+             
 
               <Link
                 to="/CustomizePage"
@@ -199,7 +197,22 @@ const Navbar = () => {
               onClick={closeMenu}
               className="text-white text-xl"
             >
-              Paintings
+            Gallery
+            </Link>
+
+            <Link
+              to="/CustomizePage"
+              onClick={closeMenu}
+              className="text-white text-xl"
+            >
+              Customize
+            </Link>
+            <Link
+              to="/FAQPage"
+              onClick={closeMenu}
+              className="text-white text-xl"
+            >
+              FAQ
             </Link>
 
             <Link
